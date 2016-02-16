@@ -43,6 +43,10 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- ContextLoaderListener的作用就是启动Web容器时，自动装配ApplicationContext的配置信息
+    。因为它实现了ServletContextListener这个接口，在web.xml配置这个监听器，启动容器时，
+    就会默认执行它实现的方法。spring中的所有bean都由这个类来创建
+     ContextLoaderListener.getCurrentWebApplicationContext().getBean("**")可以访问某个bean-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
