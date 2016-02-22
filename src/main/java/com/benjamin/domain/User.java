@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User extends BaseDomain {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Id
     private int id;
     @Column(name = "username")
@@ -43,4 +43,5 @@ public class User extends BaseDomain {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

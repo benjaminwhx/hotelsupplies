@@ -12,3 +12,5 @@ DispatcherServlet需要咨询一个或多个处理器映射来明确地将请求
 @Controller注解表明这个类是一个控制器类。这个类是@Component注解的一种具体化，也就是说<context:component-scan>将查找使用
 @Component注解的类并将其注册为Bean，就像它们使用@Component注解那样。
 Spring自带了多个视图解析器，具体参考【Spring实战】172页
+
+Spring配置dataSource详解：http://www.cnblogs.com/snake-hand/p/3144811.html
