@@ -42,7 +42,12 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
+    <!-- OpenSessionInViewFilter的主要功能是用来把一个Hibernate Session和一次完整的请求过程对应的线程相绑定。
+    目的是为了实现"Open Session in View"的模式。例如： 它允许在事务提交之后延迟加载显示所需要的对象。
+ OpenSessionInViewFilter 过滤器将 Hibernate Session 绑定到请求线程中，它将自动被 Spring 的事务管理器探测到。
+ 所以 OpenSessionInViewFilter 适用于 Service 层使用HibernateTransactionManager 或
+ JtaTransactionManager 进行事务管理的环境，也可以用于非事务只读的数据操作中。-->
     <filter>
         <filter-name>openSessionInViewFilter</filter-name>
         <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
@@ -66,4 +71,27 @@
         classpath*：不仅包含class路径，还包括jar文件中(class路径)进行查找.-->
         <param-value>classpath:config/spring-hibernate.xml</param-value>
     </context-param>
+
+    <!-- session超时定义,单位为分钟 -->
+    <session-config>
+        <session-timeout>200</session-timeout>
+    </session-config>
+
+    <!-- 出错页面定义 -->
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/pages/error/500.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/pages/error/500.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/pages/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/pages/error/403.jsp</location>
+    </error-page>
 </web-app>
