@@ -12,7 +12,7 @@
     <!-- 在向servlet或JSP页面制定初始化参数或定制URL时，必须首先命名servlet或JSP页面。Servlet元素就是用来完成此项任务的。 -->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>    <!-- doService() -->
         <!-- 当值为0或者大于0时，表示容器在应用启动时就加载并初始化这个servlet；
         当值小于0或者没有指定时，则表示容器在该servlet被选择时才会去加载。
         正数的值越小，该servlet的优先级越高，应用启动时就越先加载。
@@ -43,6 +43,22 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- html中form表单只支持GET与POST请求，而DELETE、PUT等method并不支持，spring3添加了
+    一个过滤器，可以将这些请求转换为标准的http方法，使得支持GET、POST、PUT与DELETE请求。
+    Post提交 <input type="hidden" name="_method" value="put" /> -->
+    <filter>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+        <init-param>
+            <param-name>methodParam</param-name>
+            <param-value>_method_</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- OpenSessionInViewFilter的主要功能是用来把一个Hibernate Session和一次完整的请求过程对应的线程相绑定。
     目的是为了实现"Open Session in View"的模式。例如： 它允许在事务提交之后延迟加载显示所需要的对象。
  OpenSessionInViewFilter 过滤器将 Hibernate Session 绑定到请求线程中，它将自动被 Spring 的事务管理器探测到。
@@ -51,6 +67,10 @@
     <filter>
         <filter-name>openSessionInViewFilter</filter-name>
         <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+        <init-param>
+            <param-name>flushMode</param-name>
+            <param-value>AUTO</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>openSessionInViewFilter</filter-name>
@@ -64,13 +84,39 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <!-- 解决由于Struts或者quartz引起的内存泄露问题 -->
+    <listener>
+        <listener-class>
+            org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+
+    <!-- 配置log4j -->
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
     
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>hotelsupplies.root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:config/log4j.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>3000</param-value>
+    </context-param>
+
+    <!-- getServletContext().getInitParam() -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <!-- classpath：只会到你指定的class路径中查找找文件;
         classpath*：不仅包含class路径，还包括jar文件中(class路径)进行查找.-->
         <param-value>classpath:config/spring-hibernate.xml</param-value>
     </context-param>
+
 
     <!-- session超时定义,单位为分钟 -->
     <session-config>

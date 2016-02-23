@@ -1,8 +1,8 @@
 package com.benjamin.dao.base;
 
 import com.benjamin.utils.ReflectionUtils;
-import com.benjamin.utils.orm.Page;
-import com.benjamin.utils.orm.PropertyFilter;
+import com.benjamin.common.orm.Page;
+import com.benjamin.common.orm.PropertyFilter;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Query;

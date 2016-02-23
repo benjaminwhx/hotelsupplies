@@ -1,4 +1,4 @@
-package com.benjamin.utils.orm;
+package com.benjamin.common.orm;
 
 import org.apache.commons.lang.StringUtils;
 
