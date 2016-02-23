@@ -3,20 +3,32 @@ package com.benjamin.domain;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Created by piqiu on 2/17/16.
  */
-public class BaseDomain implements Serializable {
+@MappedSuperclass
+public abstract class BaseDomain {
 
-    private static final long serialVersionUID = -1507435217983652006L;
+    @GeneratedValue
+    @Id
+    protected Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
         // SHORT_PREFIX_STYLE是对象名称简写，这里简化对象信息输出
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
-
 
 }
