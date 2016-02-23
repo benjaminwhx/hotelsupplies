@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:config/persistence-mysql.properties" />
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan">
+            <list>
+                <!-- 可以加多个包 -->
+                <value>com.benjamin.domain</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <!--<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>-->
+                <!-- 显示sql语句在控制台 -->
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <!-- hibernate方言 -->
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <!-- 配置二级缓存 -->
+                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+
+            </props>
+        </property>
+    </bean>
+
+    <!-- 数据库映射 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${hibernate.connection.driverClassName}" />
+        <property name="url" value="${hibernate.connection.url}" />
+        <property name="username" value="${hibernate.connection.username}" />
+        <property name="password" value="${hibernate.connection.password}" />
+        <!-- 连接初始值，连接池启动时创建的连接数量的初始值 -->
+        <property name="initialSize" value="${initialSize}" />
+        <!-- 连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制 -->
+        <property name="maxActive" value="${maxActive}" />
+        <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 ，0时无限制-->
+        <property name="maxIdle" value="${maxIdle}" />
+        <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+        <property name="minIdle" value="${minIdle}" />
+        <!-- 是否对已备语句进行池管理（布尔值），是否对PreparedStatement进行缓存 -->
+        <property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+        <!-- 是否对sql进行自动提交 -->
+        <property name="defaultAutoCommit" value="${defaultAutoCommit}" />
+    </bean>
+
+    <!-- 配置Hibernate事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>
