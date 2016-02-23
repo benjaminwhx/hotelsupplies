@@ -7,6 +7,8 @@ import org.hibernate.metadata.ClassMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
@@ -17,6 +19,8 @@ import java.util.Map;
 /**
  * Created by piqiu on 2/22/16.
  */
+@Repository
+@Transactional
 public class BaseDao<T, ID extends Serializable> implements IBaseDao<T, ID> {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
     protected SessionFactory sessionFactory;

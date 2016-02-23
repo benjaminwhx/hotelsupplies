@@ -1,4 +1,4 @@
-package com.benjamin.dao.base;
+package com.benjamin.utils.orm;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -117,6 +117,11 @@ public class Page<T> {
 
     public Page<T> autoCount(boolean theAutoCount) {
         setAutoCount(theAutoCount);
+        return this;
+    }
+
+    public Page<T> result(List<T> result) {
+        setResult(result);
         return this;
     }
 

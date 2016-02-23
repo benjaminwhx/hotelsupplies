@@ -5,7 +5,7 @@ import java.util.Collection;
 /**
  * Created by piqiu on 2/19/16.
  */
-public final class JudgeNullUtil {
+public final class JudgeNullUtils {
 
     /**
      * judge the object is null

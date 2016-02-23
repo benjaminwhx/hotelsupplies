@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by piqiu on 2/17/16.
@@ -11,22 +12,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class User extends BaseDomain {
+public class User extends BaseDomain implements Serializable{
 
-    @GeneratedValue
-    @Id
-    private int id;
+    private static final long serialVersionUID = 1645588030306171446L;
     @Column(name = "username")
     private String userName;
     private String password;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUserName() {
         return userName;
