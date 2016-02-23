@@ -27,7 +27,6 @@ public class MainController {
         String userName = "wuyong";
         modelAndView.addObject("userName", userName);
         modelAndView.addObject("password", userService.findUserByUserName(userName).getPassword());
-        logger.info("aaa");
         return modelAndView;
     }
 
