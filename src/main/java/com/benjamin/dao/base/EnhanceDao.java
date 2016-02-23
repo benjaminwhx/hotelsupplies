@@ -8,10 +8,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.*;
-//import org.hibernate.impl.CriteriaImpl;
+import org.hibernate.internal.CriteriaImpl;
 import org.hibernate.transform.ResultTransformer;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
@@ -36,9 +34,9 @@ public class EnhanceDao<T, ID extends Serializable> extends BaseDao<T, ID> {
      * @param page
      * @return
      */
-//    public Page<T> getAll(Page<T> page) {
-//        return findPage(page, new Criterion[0]);
-//    }
+    public Page<T> getAll(Page<T> page) {
+        return findPage(page, new Criterion[0]);
+    }
 
     /**
      * 按HQL分页查询.
@@ -86,25 +84,25 @@ public class EnhanceDao<T, ID extends Serializable> extends BaseDao<T, ID> {
      *
      * @return 分页查询结果.附带结果列表及所有查询输入参数.
      */
-//    public Page<T> findPage(Page<T> page, Criterion... criterions) {
-//        Assert.notNull(page, "page不能为空");
-//        Criteria c = createCriteria(criterions);
-//        if (page.isAutoCount()) {
-//            long result = countCriteriaResult(c);
-//            page.setTotalCount(result);
-//        }
-//
-//        setPageParameterToCriteria(c, page);
-//        return page.result(c.list());
-//    }
+    public Page<T> findPage(Page<T> page, Criterion... criterions) {
+        Assert.notNull(page, "page不能为空");
+        Criteria c = createCriteria(criterions);
+        if (page.isAutoCount()) {
+            long result = countCriteriaResult(c);
+            page.setTotalCount(result);
+        }
+
+        setPageParameterToCriteria(c, page);
+        return page.result(c.list());
+    }
 
     /**
      * 按属性过滤条件列表分页查找对象.
      */
-//    public Page<T> findPage(final Page<T> page, final List<PropertyFilter> filters) {
-//        Criterion[] criterions = buildCriterionByPropertyFilter(filters);
-//        return findPage(page, criterions);
-//    }
+    public Page<T> findPage(final Page<T> page, final List<PropertyFilter> filters) {
+        Criterion[] criterions = buildCriterionByPropertyFilter(filters);
+        return findPage(page, criterions);
+    }
 
     /**
      * 按属性查找对象列表,支持多种匹配方式.
@@ -193,38 +191,38 @@ public class EnhanceDao<T, ID extends Serializable> extends BaseDao<T, ID> {
     /**
      * 执行count查询获得本次Criteria查询所能获得的对象总数.
      */
-//    protected long countCriteriaResult(Criteria c) {
-//        CriteriaImpl impl = (CriteriaImpl)c;
-//        Projection projection = impl.getProjection();
-//        ResultTransformer transformer = impl.getResultTransformer();
-//        List orderEntries = null;
-//
-//        try {
-//            orderEntries = (List)ReflectionUtils.getFieldValue(impl, ORDER_ENTRIES);
-//            ReflectionUtils.setFieldValue(impl, ORDER_ENTRIES, new ArrayList());
-//        } catch (Exception var11) {
-//            logger.error("不可能抛出的异常:{}", var11.getMessage());
-//        }
-//
-//        Long totalCountObject = (Long)c.setProjection(Projections.rowCount()).uniqueResult();
-//        long totalCount = totalCountObject != null ? totalCountObject.longValue() : 0L;
-//        c.setProjection(projection);
-//        if (projection == null) {
-//            c.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
-//        }
-//
-//        if (transformer != null) {
-//            c.setResultTransformer(transformer);
-//        }
-//
-//        try {
-//            ReflectionUtils.setFieldValue(impl, ORDER_ENTRIES, orderEntries);
-//        } catch (Exception var10) {
-//            this.logger.error("不可能抛出的异常:{}", var10.getMessage());
-//        }
-//
-//        return totalCount;
-//    }
+    protected long countCriteriaResult(Criteria c) {
+        CriteriaImpl impl = (CriteriaImpl)c;
+        Projection projection = impl.getProjection();
+        ResultTransformer transformer = impl.getResultTransformer();
+        List orderEntries = null;
+
+        try {
+            orderEntries = (List)ReflectionUtils.getFieldValue(impl, ORDER_ENTRIES);
+            ReflectionUtils.setFieldValue(impl, ORDER_ENTRIES, new ArrayList());
+        } catch (Exception var11) {
+            logger.error("不可能抛出的异常:{}", var11.getMessage());
+        }
+
+        Long totalCountObject = (Long)c.setProjection(Projections.rowCount()).uniqueResult();
+        long totalCount = totalCountObject != null ? totalCountObject.longValue() : 0L;
+        c.setProjection(projection);
+        if (projection == null) {
+            c.setResultTransformer(CriteriaSpecification.ROOT_ENTITY);
+        }
+
+        if (transformer != null) {
+            c.setResultTransformer(transformer);
+        }
+
+        try {
+            ReflectionUtils.setFieldValue(impl, ORDER_ENTRIES, orderEntries);
+        } catch (Exception var10) {
+            this.logger.error("不可能抛出的异常:{}", var10.getMessage());
+        }
+
+        return totalCount;
+    }
 
     /**
      * 按属性条件参数创建Criterion,辅助函数.
