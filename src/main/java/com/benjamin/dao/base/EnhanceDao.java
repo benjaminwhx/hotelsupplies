@@ -22,8 +22,6 @@ import java.util.Map;
 /**
  * Created by piqiu on 2/22/16.
  */
-@Repository
-@Transactional
 public class EnhanceDao<T, ID extends Serializable> extends BaseDao<T, ID> {
     public EnhanceDao(){
         super();

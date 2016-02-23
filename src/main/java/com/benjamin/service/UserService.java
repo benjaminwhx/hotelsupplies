@@ -5,8 +5,6 @@ import com.benjamin.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-
 /**
  * Created by piqiu on 2/23/16.
  */
@@ -20,7 +18,4 @@ public class UserService {
         return userDao.findUniqueBy("userName", userName);
     }
 
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
 }

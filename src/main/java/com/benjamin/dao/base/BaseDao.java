@@ -19,8 +19,6 @@ import java.util.Map;
 /**
  * Created by piqiu on 2/22/16.
  */
-@Repository
-@Transactional
 public class BaseDao<T, ID extends Serializable> implements IBaseDao<T, ID> {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
     protected SessionFactory sessionFactory;

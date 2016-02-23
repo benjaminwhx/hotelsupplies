@@ -31,5 +31,4 @@ public abstract class BaseDomain {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-
 }
