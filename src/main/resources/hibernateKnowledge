@@ -1,6 +1,0 @@
-@GeneratedValue:
-http://blog.csdn.net/sz_bdqn/article/details/11854665
-http://blog.csdn.net/itmyhome1990/article/details/7460378
-IDENTITY:主键由数据库自动生成(主要是自动增长型)
-AUTO:主键由程序控制
-

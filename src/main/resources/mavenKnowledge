@@ -1,8 +1,0 @@
-Maven属性
-事实上有六种类型的Maven属性：
-1、内置属性：主要有两个常用内置属性——${basedir}表示项目根目录，即包含pom.xml文件的目录;${version}表示项目版本。
-2、POM属性：pom中对应元素的值。例如${project.artifactId}对应了<project><artifactId>元素的值。
-3、自定义属性：在pom中<properties>元素下自定义的Maven属性。
-4、Settings属性：与POM属性同理。如${settings.localRepository}指向用户本地仓库的地址。
-5、Java系统属性：所有Java系统属性都可以使用Maven属性引用，例如${user.home}指向了用户目录。可以通过命令行mvn help:system查看所有的Java系统属性
-6、环境变量属性：所有环境变量都可以使用以env.开头的Maven属性引用。例如${env.JAVA_HOME}指代了JAVA_HOME环境变量的值。也可以通过命令行mvn help:system查看所有环境变量。

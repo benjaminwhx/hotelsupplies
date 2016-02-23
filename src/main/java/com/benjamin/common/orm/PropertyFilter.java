@@ -1,4 +1,4 @@
-package com.benjamin.utils.orm;
+package com.benjamin.common.orm;
 
 import com.benjamin.utils.ServletUtils;
 import org.apache.commons.beanutils.ConvertUtils;
