@@ -7,7 +7,6 @@ import org.hibernate.metadata.ClassMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
@@ -18,7 +17,6 @@ import java.util.Map;
 /**
  * Created by piqiu on 2/22/16.
  */
-@Transactional
 public class BaseDao<T, ID extends Serializable> implements IBaseDao<T, ID> {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
     protected SessionFactory sessionFactory;
@@ -64,7 +62,6 @@ public class BaseDao<T, ID extends Serializable> implements IBaseDao<T, ID> {
     public void delete(T t) {
         Assert.notNull(t, "entity不能为空");
         getSession().delete(t);
-        flush();
         logger.info("delete entity: {}", t);
     }
 

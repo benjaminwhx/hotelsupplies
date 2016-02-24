@@ -6,6 +6,8 @@
 
     <context:property-placeholder location="classpath:config/persistence-mysql.properties" file-encoding="utf-8"/>
 
+    <context:component-scan base-package= "com.benjamin.service, com.benjamin.dao"/>
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">
@@ -61,8 +63,9 @@
     <!-- 配置Hibernate事务管理器 -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
+        <property name="rollbackOnCommitFailure" value="true" />
     </bean>
-
+    <!-- 启用事务注解方式 -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
 </beans>

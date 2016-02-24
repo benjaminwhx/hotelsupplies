@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by piqiu on 2/23/16.
  */
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
