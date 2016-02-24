@@ -27,6 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
         <slf4j.version>1.7.5</slf4j.version>
+        <base64.version>2.3.9</base64.version>
     </properties>
 
     <dependencies>
@@ -209,6 +210,13 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>net.iharder</groupId>
+            <artifactId>base64</artifactId>
+            <version>${base64.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
