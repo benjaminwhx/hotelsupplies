@@ -3,8 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <import resource="customer.xml" />
 
-    <context:property-placeholder location="classpath:config/persistence-mysql.properties" file-encoding="utf-8"/>
+
+    <!-- 解密配置安全信息，代替property-placeholder-->
+    <!--<context:property-placeholder location="classpath:config/persistence-mysql.properties" file-encoding="utf-8"/>-->
+    <bean class="com.benjamin.common.security.EncrytPropertyPlaceHolder">
+        <property name="location" value="classpath:config/persistence-mysql.properties" />
+        <property name="fileEncoding" value="utf-8" />
+    </bean>
 
     <context:component-scan base-package= "com.benjamin.service, com.benjamin.dao"/>
 
