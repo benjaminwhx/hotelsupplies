@@ -1,5 +1,6 @@
 package com.benjamin.controller;
 
+import com.benjamin.domain.User;
 import com.benjamin.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by piqiu on 2/16/16.
@@ -27,8 +30,16 @@ public class MainController {
         String userName = "wuyong";
         modelAndView.addObject("userName", userName);
         modelAndView.addObject("password", userService.findUserByUserName(userName).getPassword());
-        logger.info("aaa");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public ModelAndView add(HttpServletRequest request) {
+        User user = new User();
+        String id = request.getParameter("id");
+        user.setId(Long.valueOf(id));
+        userService.delete(user);
+        return new ModelAndView("add");
     }
 
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+    <!-- 自定义解析properties文件 -->
+    <bean id="customerProperties" class="com.benjamin.utils.support.PropertiesUtil">
+        <property name="locations">
+            <list>
+                <value>classpath:config/log4j.properties</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

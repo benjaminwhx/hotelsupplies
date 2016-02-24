@@ -7,8 +7,6 @@ import org.hibernate.metadata.ClassMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
@@ -50,28 +48,28 @@ public class BaseDao<T, ID extends Serializable> implements IBaseDao<T, ID> {
     public void save(T t) {
         Assert.notNull(t, "entity不能为空");
         getSession().save(t);
-        logger.debug("save entity: {}", t);
+        logger.info("save entity: {}", t);
     }
 
     @Override
     public void saveOrUpdate(T t) {
         Assert.notNull(t, "entity不能为空");
         getSession().saveOrUpdate(t);
-        logger.debug("save entity: {}", t);
+        logger.info("save entity: {}", t);
     }
 
     @Override
     public void delete(T t) {
         Assert.notNull(t, "entity不能为空");
         getSession().delete(t);
-        logger.debug("delete entity: {}", t);
+        logger.info("delete entity: {}", t);
     }
 
     @Override
     public void delete(ID id) {
         Assert.notNull(id, "id不能为空");
         delete(get(id));
-        logger.debug("delete entity {}, id is {}", entityClass.getSimpleName(), id);
+        logger.info("delete entity {}, id is {}", entityClass.getSimpleName(), id);
     }
 
     @Override
