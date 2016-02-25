@@ -211,6 +211,7 @@
             <version>${slf4j.version}</version>
         </dependency>
 
+        <!-- base64 -->
         <dependency>
             <groupId>net.iharder</groupId>
             <artifactId>base64</artifactId>
