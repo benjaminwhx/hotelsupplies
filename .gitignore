@@ -1,3 +1,4 @@
 /.idea
 hotelsupplies.iml
-knowledge/*
+/knowledge
+/target
