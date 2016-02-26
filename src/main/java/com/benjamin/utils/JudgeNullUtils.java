@@ -31,7 +31,7 @@ public final class JudgeNullUtils {
      * @return
      */
     public static boolean isCollectionEmpty(Collection collection) {
-        return !isObjecctNull(collection) && collection.size() == 0;
+        return isObjecctNull(collection) || collection.size() == 0;
     }
 
     /**
@@ -40,7 +40,7 @@ public final class JudgeNullUtils {
      * @return
      */
     public static boolean isCollectionNotEmpty(Collection collection) {
-        return !isObjecctNull(collection) && collection.size() > 0;
+        return !isCollectionEmpty(collection);
     }
 
 }
