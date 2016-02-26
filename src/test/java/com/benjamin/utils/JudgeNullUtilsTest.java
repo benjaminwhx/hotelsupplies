@@ -1,6 +1,6 @@
 package com.benjamin.utils;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;

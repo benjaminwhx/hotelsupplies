@@ -7,7 +7,7 @@
     <bean id="customerProperties" class="com.benjamin.utils.support.PropertiesUtil">
         <property name="locations">
             <list>
-                <value>classpath:config/log4j.properties</value>
+                <value>classpath:config/email.properties</value>
             </list>
         </property>
     </bean>
