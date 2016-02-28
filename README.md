@@ -10,3 +10,13 @@
 看看最后能写成什么样子
 
 有技术的朋友们可以帮忙谢谢哈
+
+
+#环境配置
+
+1.修改persistence-mysql.properties文件，
+将jdbc.username,jdbc.password,
+hibernate.connection.username,hibernate.connection.password
+改为自己数据库的用户名密码。
+
+注意：该数据库用户名密码由base64编码，可以利用EncrytPropertyPlaceHolder类生成编码
