@@ -22,6 +22,12 @@ public class UserService {
         return userDao.findUniqueBy("userName", userName);
     }
 
+    public User get(long id) {
+        User user = userDao.get(id);
+        user.setUserName("ss");
+        return user;
+    }
+
     public void save(User user) {
         userDao.saveOrUpdate(user);
     }

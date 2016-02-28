@@ -10,7 +10,7 @@
 
 <% response.setStatus(200); %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-CN">
 <head>
     <title>404 - 页面不存在</title>
 </head>
