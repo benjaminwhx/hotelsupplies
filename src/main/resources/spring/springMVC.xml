@@ -15,9 +15,9 @@
        <mvc:annotation-driven />
 
        <!--指定资源文件，避免资源文件被MVC拦截-->
-       <mvc:resources mapping="/js/**" location="/WEB-INF/resources/js/"><mvc:resource-chain resource-cache="true"/></mvc:resources>
-       <mvc:resources mapping="/css/**" location="/WEB-INF/resources/css/"></mvc:resources>
-       <mvc:resources mapping="/img/**" location="/WEB-INF/resources/img/"></mvc:resources>
+       <mvc:resources mapping="/myjs/**" location="/WEB-INF/resources/js/"></mvc:resources>
+       <mvc:resources mapping="/mycss/**" location="/WEB-INF/resources/css/"></mvc:resources>
+       <mvc:resources mapping="/myimg/**" location="/WEB-INF/resources/img/"></mvc:resources>
 
        <!--ViewResolver 视图解析器-->
        <!--用于支持Servlet、JSP视图解析-->

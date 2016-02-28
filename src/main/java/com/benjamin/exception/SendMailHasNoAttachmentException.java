@@ -1,4 +1,4 @@
-package com.exception;
+package com.benjamin.exception;
 
 /**
  * Created by piqiu on 2/26/16.

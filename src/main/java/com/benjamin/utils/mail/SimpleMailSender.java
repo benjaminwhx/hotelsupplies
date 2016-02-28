@@ -1,8 +1,8 @@
 package com.benjamin.utils.mail;
 
 import com.benjamin.utils.JudgeNullUtils;
-import com.exception.SendMailHasNoAttachmentException;
-import com.exception.SendMailHasNoReceiverException;
+import com.benjamin.exception.SendMailHasNoAttachmentException;
+import com.benjamin.exception.SendMailHasNoReceiverException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -49,6 +49,13 @@ public class MainController {
         return new ModelAndView("add");
     }
 
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public ModelAndView test() {
+        User user = userService.get(2);
+        System.out.println(user.getUserName());
+        return new ModelAndView("add");
+    }
+
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
     public ModelAndView add() {
         String[] mailToAddress = {"benjamin.wu@leandev.se"};
@@ -67,5 +74,10 @@ public class MainController {
             logger.info("mail send failed");
         }
         return new ModelAndView("sendMail");
+    }
+
+    @RequestMapping(value = "/testBootstrap")
+    public ModelAndView testBootStrap() {
+        return new ModelAndView("bootstrap_test/bootstrap");
     }
 }
