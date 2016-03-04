@@ -37,7 +37,7 @@ public class UserService {
     }
 
     public User find(Long id){
-        User user = userDao.get(id);
+        User user = userDao.findUnique(" from User where id = ?", id);
         return user;
     }
 }

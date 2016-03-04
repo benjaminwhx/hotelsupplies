@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <!--如果缓存中的对象存储超过指定的缓存数量的对象存储的磁盘地址-->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!--
+        默认设置
+        maxElementsInMemory : 在內存中最大緩存的对象数量。
+        eternal : 缓存的对象是否永远不变。
+        timeToIdleSeconds ：可以操作对象的时间。
+        timeToLiveSeconds ：缓存中对象的生命周期，时间到后查询数据会从数据库中读取。
+        overflowToDisk ：内存满了，是否要缓存到硬盘。
+    -->
+    <defaultCache maxElementsInMemory="200" eternal="false"
+                  timeToIdleSeconds="50" timeToLiveSeconds="60" overflowToDisk="true"></defaultCache>
+    <!--
+        指定缓存的对象。
+        下面出现的的属性覆盖上面出现的，没出现的继承上面的。
+    -->
+    <cache name="com.suxiaolei.hibernate.pojos.Order" maxElementsInMemory="200" eternal="false"
+           timeToIdleSeconds="50" timeToLiveSeconds="60" overflowToDisk="true"></cache>
+
+</ehcache>
