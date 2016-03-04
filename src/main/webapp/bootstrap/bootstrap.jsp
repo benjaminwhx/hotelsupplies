@@ -13,8 +13,12 @@
   <%@ include file="/WEB-INF/pages/common/meta.jsp" %>
   <title>bootStrap测试页面</title>
   <%@ include file="/WEB-INF/pages/common/bootstrap-resources.jsp" %>
+  <style>
+  </style>
 </head>
 <body>
-<button type="button" class="btn btn-danger">BootStrap按钮</button>
+  <div class="container">
+    <h3></h3>
+  </div>
 </body>
 </html>
