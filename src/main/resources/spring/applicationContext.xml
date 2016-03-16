@@ -41,7 +41,10 @@
                 <!--<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>-->
                 <!-- 配置二级缓存 -->
                 <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+                <prop key="hibernate.cache.provider_configuration_file_resource_path">classpath:config/ehcache.xml</prop>
                 <prop key="hibernate.cache.use_second_level_cache">${hibernate.use_second_level_cache}</prop>
+                <!-- 查询缓存必须显示调用query.setCacheable(true)才可以调用-->
+                <prop key="hibernate.cache.use_query_cache">true</prop>
 
             </props>
         </property>
