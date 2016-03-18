@@ -58,7 +58,7 @@ public class MainController {
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
     public ModelAndView add() {
-        String[] mailToAddress = {"benjamin.wu@leandev.se"};
+        String[] mailToAddress = {"scarlett.meng@leandev.se"};
         String[] mailCCAddress = {"benjaminwhx@sina.com"};
         String subject = "测试2";
         String content = "注册地址 <a href=\\\"www.baidu.com\\\" target='_blank'>百度</a>";

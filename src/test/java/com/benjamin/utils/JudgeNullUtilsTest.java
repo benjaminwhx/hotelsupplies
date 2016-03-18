@@ -16,7 +16,7 @@ public class JudgeNullUtilsTest {
         List<String> list1 = new ArrayList<>();
         Assert.assertEquals(JudgeNullUtils.isCollectionEmpty(list1), true);
         List<String> list2 = null;
-        Assert.assertEquals(JudgeNullUtils.isCollectionEmpty(list2), false);
+        Assert.assertEquals(JudgeNullUtils.isCollectionEmpty(list2), true);
         List<String> list3 = new ArrayList<>();
         list3.add("test");
         Assert.assertEquals(JudgeNullUtils.isCollectionNotEmpty(list3), true);

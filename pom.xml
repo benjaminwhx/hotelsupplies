@@ -92,10 +92,12 @@
             <version>1.7.4</version>
         </dependency>
 
+        <!-- 下面这两个scope一定要是provided，不然放入外部tomcat可能会和tomcat内部的jar包产生冲突-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>${servlet-api.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
