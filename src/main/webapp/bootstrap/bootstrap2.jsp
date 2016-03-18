@@ -18,21 +18,26 @@
 </head>
 <body>
   <div class="container">
-    <h3>内联代码</h3>
-    <p>For example, <code>&lt;section&gt;</code> should be wrapped as inline.</p>
-
-    <h3>用户输入</h3>
-    <p>To switch directories, type <kbd>cd</kbd> followed by the name of the directory.</p>
-    <p>To edit settings, press <kbd>ctrl + ,</kbd></p>
-
-    <h3>代码块</h3>
-    <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
-
-    <h3>变量</h3>
-    <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
-
-    <h3>程序输出</h3>
-    <samp>This text is meant to be treated as sample output from a computer program.</samp>
+    <div class="col-xs-6 col-md-3">
+      <a href="#" class="thumbnail">
+        <img src="/myimg/1.jpg" alt="1">
+      </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <a href="#" class="thumbnail">
+        <img src="/myimg/1.jpg" alt="1">
+      </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <a href="#" class="thumbnail">
+        <img src="/myimg/1.jpg" alt="1">
+      </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <a href="#" class="thumbnail">
+        <img src="/myimg/1.jpg" alt="1">
+      </a>
+    </div>
   </div>
 </body>
 </html>
