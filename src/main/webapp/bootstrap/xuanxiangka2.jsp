@@ -12,7 +12,7 @@
 <head>
   <%@ include file="/WEB-INF/pages/common/meta.jsp" %>
   <title>bootStrap测试页面</title>
-  <%@ include file="/WEB-INF/pages/common/bootstrap-resources.jsp" %>
+  <%@ include file="/WEB-INF/pages/common/travel-resources.jsp" %>
   <style>
     .tab-pane {border: 1px solid #f0ad4e;}
   </style>

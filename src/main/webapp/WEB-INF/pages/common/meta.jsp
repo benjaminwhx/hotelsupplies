@@ -1,3 +1,4 @@
+<meta charset="utf-8"/>
 <meta name="keywords" content="hotel,酒店用品,酒店"/>
 <meta name="description" content="月升酒店用品网"/>
 <meta name="author" content="benjamin,吴海旭,benjaminwhx@sina.com,benjaminwhx.com"/>

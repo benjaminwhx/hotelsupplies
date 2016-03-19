@@ -31,12 +31,6 @@ public class MainController {
     public ModelAndView index() {
         // modelAndView的名称将会结合viewResolver配置的prefix和suffix合成一个页面的路径
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("message", "hello_world_mvc!");
-        //数据库里插入一行id为1的数据,测试数据库查询
-        User user = userService.find(Long.parseLong("1"));
-        modelAndView.addObject("userName", user.getUserName());
-        modelAndView.addObject("password", user.getPassword());
-
         return modelAndView;
     }
 

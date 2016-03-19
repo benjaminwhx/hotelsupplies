@@ -1,0 +1,173 @@
+body {
+    overflow-x: hidden;
+    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.btn-xl {
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+    font-family: STHeiti,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 3px;
+    font-size: 17px;
+    padding: 10px 20px
+}
+@media (min-width:768px) {
+    .btn-xl {
+        font-size: 22px;
+        padding: 20px 40px
+    }
+}
+.btn-xl:hover,.btn-xl:focus,.btn-xl:active,.btn-xl.active,.open .dropdown-toggle.btn-xl {
+    color: #fff;
+    background-color: #fec503;
+    border-color: #f6bf01
+}
+.btn-xl:active,.btn-xl.active,.open .dropdown-toggle.btn-xl {
+    background-image: none
+}
+.btn-xl.disabled,.btn-xl[disabled],fieldset[disabled] .btn-xl,.btn-xl.disabled:hover,.btn-xl[disabled]:hover,fieldset[disabled] .btn-xl:hover,.btn-xl.disabled:focus,.btn-xl[disabled]:focus,fieldset[disabled] .btn-xl:focus,.btn-xl.disabled:active,.btn-xl[disabled]:active,fieldset[disabled] .btn-xl:active,.btn-xl.disabled.active,.btn-xl[disabled].active,fieldset[disabled] .btn-xl.active {
+    background-color: #fed136;
+    border-color: #fed136
+}
+.navbar-default {
+    /*这里千万不能用background-color，只能用background*/
+    background: #222;
+    border-color: transparent;
+}
+.navbar-default .navbar-brand {
+    color: #fed136;
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive
+}
+.navbar-default .navbar-brand span{
+    font-family: STXingkai,SimHei,STXihei;
+}
+.navbar-default .navbar-brand:hover,.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:active,.navbar-default .navbar-brand.active {
+    color: #fec503
+}
+.navbar-default .navbar-collapse {
+    border-color: rgba(255,255,255,.02)
+}
+.navbar-default .navbar-toggle {
+    background-color: #fed136;
+    border-color: #fed136
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff
+}
+.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus {
+    background-color: #fed136
+}
+.navbar-default .nav li a {
+    font-family: STXingkai,SimHei,STXihei;
+    text-transform: uppercase;
+    font-size: 17px;
+    letter-spacing: 1px;
+    color: #fff
+}
+.navbar-default .nav li a:hover,.navbar-default .nav li a:focus {
+    color: #fed136;
+    outline: 0
+}
+.navbar-default .navbar-nav>.active>a {
+    border-radius: 0;
+    color: #fff;
+    background-color: #fed136
+}
+.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus {
+    color: #fff;
+    background-color: #fec503
+}
+@media (min-width:768px) {
+    .navbar-default {
+        background-color: transparent;
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+        border: 0
+    }
+    .navbar-default .nav li a {
+        font-size: 25px;
+    }
+    .navbar-default .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s
+    }
+    .navbar-default .navbar-nav>.active>a {
+        border-radius: 3px
+    }
+    .navbar-default.navbar-shrink {
+        background-color: #222;
+        padding: 10px 0
+    }
+    .navbar-default.navbar-shrink .navbar-brand {
+        font-size: 1.5em
+    }
+}
+
+/*header部分*/
+header {
+    background: url(/myimg/header-bg.jpg) no-repeat scroll center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+    color: #fff
+}
+header .intro-text {
+    padding-top: 100px;
+    padding-bottom: 50px
+}
+header .intro-text .intro-lead-in {
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 25px
+}
+header .intro-text .intro-heading {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 50px;
+    margin-bottom: 25px
+}
+@media (min-width:768px) {
+    header .intro-text {
+        padding-top: 300px;
+        padding-bottom: 200px
+    }
+    header .intro-text .intro-lead-in {
+        font-family: STXingkai,SimHei,STXihei;
+        font-size: 40px;
+        line-height: 40px;
+        margin-bottom: 25px
+    }
+    header .intro-text .intro-heading {
+        font-family: STKaiti,SimHei,STXihei;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 75px;
+        line-height: 75px;
+        margin-bottom: 50px
+    }
+}
+.line {
+    height: 1px;
+    background: rgba(30, 32, 32, 0.38);
+    display: block;
+}
+footer {
+    padding: 25px 0;
+    text-align: center
+}
+footer .row {
+    font-family: STKaiti,SimHei,STXihei;
+    font-size: 15px;
+    line-height: 40px;
+}
