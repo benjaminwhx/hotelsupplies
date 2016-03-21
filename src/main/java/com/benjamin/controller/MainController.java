@@ -30,48 +30,28 @@ public class MainController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index() {
         // modelAndView的名称将会结合viewResolver配置的prefix和suffix合成一个页面的路径
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("main");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public ModelAndView add(HttpServletRequest request) {
-        User user = new User();
-        String id = request.getParameter("id");
-        user.setId(Long.valueOf(id));
-        userService.delete(user);
-        return new ModelAndView("add");
-    }
+//    @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
+//    public ModelAndView add() {
+//        String[] mailToAddress = {"scarlett.meng@leandev.se"};
+//        String[] mailCCAddress = {"benjaminwhx@sina.com"};
+//        String subject = "测试2";
+//        String content = "注册地址 <a href=\\\"www.baidu.com\\\" target='_blank'>百度</a>";
+//        List<File> file = new ArrayList<>();
+//        File f1 = new File("/Users/piqiu1/Desktop/0039.txt");
+//        file.add(f1);
+//        boolean sendResult = SimpleMailSender.sendMail(mailToAddress, mailCCAddress, subject, true, content, file);
+//        if (sendResult) {
+//            System.out.println("mail send successful");
+//            logger.info("mail send successful");
+//        } else {
+//            System.out.println("mail send failed");
+//            logger.info("mail send failed");
+//        }
+//        return new ModelAndView("sendMail");
+//    }
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public ModelAndView test() {
-        User user = userService.get(2);
-        System.out.println(user.getUserName());
-        return new ModelAndView("add");
-    }
-
-    @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
-    public ModelAndView add() {
-        String[] mailToAddress = {"scarlett.meng@leandev.se"};
-        String[] mailCCAddress = {"benjaminwhx@sina.com"};
-        String subject = "测试2";
-        String content = "注册地址 <a href=\\\"www.baidu.com\\\" target='_blank'>百度</a>";
-        List<File> file = new ArrayList<>();
-        File f1 = new File("/Users/piqiu1/Desktop/0039.txt");
-        file.add(f1);
-        boolean sendResult = SimpleMailSender.sendMail(mailToAddress, mailCCAddress, subject, true, content, file);
-        if (sendResult) {
-            System.out.println("mail send successful");
-            logger.info("mail send successful");
-        } else {
-            System.out.println("mail send failed");
-            logger.info("mail send failed");
-        }
-        return new ModelAndView("sendMail");
-    }
-
-    @RequestMapping(value = "/testBootstrap")
-    public ModelAndView testBootStrap() {
-        return new ModelAndView("bootstrap_test/bootstrap");
-    }
 }
