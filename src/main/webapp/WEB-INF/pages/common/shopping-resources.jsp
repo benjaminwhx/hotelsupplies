@@ -9,11 +9,11 @@
 <link href="/mycss/revolution/layers.css" rel="stylesheet">
 <link href="/mycss/revolution/navigation.css" rel="stylesheet">
 <link href="/mycss/revolution/settings.css" rel="stylesheet">
-<link href="/mycss/shoppingStyle.css" rel="stylesheet">
 <link href="/mycss/lightbox.css" rel="stylesheet">
 <link href="/mycss/sky-forms.css" rel="stylesheet">
 <link href="/mycss/font-css/open-sans.css" rel="stylesheet">
 <link href="/mycss/font-css/kaushan-script.css" rel="stylesheet">
+<link href="/mycss/shoppingStyle.css" rel="stylesheet">
 
 <!-- script -->
 <script src="/myjs/bootstrap-hover-dropdown.min.js"></script>

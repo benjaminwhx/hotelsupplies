@@ -25,8 +25,8 @@
                 <div class="col-sm-6 text-right">
                     <ul class="list-inline">
                         <li class="hidden-xs"><a href="#" class="offers">我的收藏</a></li>
-                        <li class="hidden-xs"><a href="#"><i class="pe-7s-user"></i> 注册</a></li>
-                        <li><a href="#"><i class="pe-7s-lock"></i> 登录</a></li>
+                        <li class="hidden-xs"><a href="/register.html"><i class="pe-7s-user"></i> 注册</a></li>
+                        <li><a href="/login.html"><i class="pe-7s-lock"></i> 登录</a></li>
                         <li class="lang-dropdown">
                             <a href="#"><img class="china" src="/myimg/shopping/flag.jpg" alt=""> 中文 <i class="fa fa-angle-down"></i></a>
                             <div class="lang-drop-menu">
@@ -54,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">YueSheng</a>
+                <a class="navbar-brand" href="/index.html">YueSheng</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
