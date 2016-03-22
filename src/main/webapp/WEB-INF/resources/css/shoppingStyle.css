@@ -172,6 +172,10 @@ del {
   font-weight: 700;
   font-size: 20px;
 }
+.breadcrumb-wrapper span {
+    color: red;
+    font-size: 18px;
+}
 
 /**header style**/
 .header {

@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     <ul class="list-inline">
-                        <li class="hidden-xs"><a href="#" class="offers">我的收藏</a></li>
+                        <li class="hidden-xs"><a href="/collections.html" class="offers">我的收藏</a></li>
                         <li class="hidden-xs"><a href="/register.html"><i class="pe-7s-user"></i> 注册</a></li>
                         <li><a href="/login.html"><i class="pe-7s-lock"></i> 登录</a></li>
                         <li class="lang-dropdown">
@@ -452,7 +452,7 @@
                         <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true">其他 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="/contact.html">联系我们</a></li>
-                            <li><a href="#">收藏列表</a></li>
+                            <li><a href="/collections.html">收藏列表</a></li>
                         </ul>
                     </li>
                 </ul>

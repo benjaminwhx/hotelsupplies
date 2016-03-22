@@ -14,7 +14,7 @@
 <!--breadcrumb start-->
 <div class="breadcrumb-wrapper">
     <div class="container">
-        <h1>登录 或 注册</h1>
+        <h1>登录 或 注册 <span>${errormsg}</span></h1>
     </div>
 </div>
 <!--end breadcrumb-->

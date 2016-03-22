@@ -1,5 +1,6 @@
 package com.benjamin.controller;
 
+import com.benjamin.common.session.UserSession;
 import com.benjamin.domain.User;
 import com.benjamin.service.UserService;
 import com.benjamin.utils.mail.MailSenderInfo;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -22,7 +24,8 @@ import java.util.List;
  */
 @Controller
 public class MainController {
-
+    private static final String NO_LOGIN_ERROR_MSG = "您还没有登录，请登录后再进行操作!";
+    private static final String ERROR_MSG_KEY = "errormsg";
     Logger logger = LoggerFactory.getLogger(MainController.class);
     @Autowired
     private UserService userService;
@@ -45,6 +48,18 @@ public class MainController {
     @RequestMapping(value = "/contact.html", method = RequestMethod.GET)
     public String goContactPage() {
         return "contact";
+    }
+
+    @RequestMapping(value = "/collections.html", method = RequestMethod.GET)
+    public ModelAndView showCollectionsPage(RedirectAttributes redirectAttributes) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (UserSession.get("userName") == null) {
+            modelAndView.setViewName("redirect:/login.html");
+            redirectAttributes.addFlashAttribute(ERROR_MSG_KEY, NO_LOGIN_ERROR_MSG);
+            return modelAndView;
+        }
+        modelAndView.setViewName("collections");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
