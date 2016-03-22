@@ -451,7 +451,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true">其他 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">联系我们</a></li>
+                            <li><a href="/contact.html">联系我们</a></li>
                             <li><a href="#">收藏列表</a></li>
                         </ul>
                     </li>

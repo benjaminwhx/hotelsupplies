@@ -27,21 +27,29 @@ public class MainController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = {"/index.html", "/"}, method = RequestMethod.GET)
-    public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("main");
-        return modelAndView;
+    @RequestMapping(value = {"/index.html", "/"})
+    public String goMainPage() {
+        return "main";
     }
 
-    @RequestMapping(value = "/login.html", method = RequestMethod.GET)
-    public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView("login");
-        return modelAndView;
+    @RequestMapping(value = "/login.html")
+    public String goLoginPage() {
+        return "login";
     }
 
     @RequestMapping(value = "/register.html", method = RequestMethod.GET)
-    public ModelAndView register() {
-        ModelAndView modelAndView = new ModelAndView("register");
+    public String goRegisterPage() {
+        return "register";
+    }
+
+    @RequestMapping(value = "/contact.html", method = RequestMethod.GET)
+    public String goContactPage() {
+        return "contact";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+        ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
     }
 
