@@ -1,14 +1,9 @@
 /* 
-    Created on : 12 Oct, 2015, 14:40:36 PM
-    Author     : RAKESH
-    File       : Assan E-commerce template
+    Author     : benjamin
     version    : v1.0
 */
-/**google font**/
-@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic,700);
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800);
 body {
-  font-family: "Arimo", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB",STHeiti,"Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
   color: #aeaeae;
   background-color: #fff;
   font-size: 13px;
@@ -38,7 +33,6 @@ button:focus {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
-  font-family: "Raleway", serif;
   letter-spacing: 1px;
   color: #333;
 }
@@ -305,7 +299,6 @@ del {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 13px;
-  font-family: "Raleway", serif;
 }
 
 .navbar-default .navbar-brand > img {
@@ -497,9 +490,8 @@ del {
   padding: 15px 25px;
 }
 .yamm-content h3 {
-  font-size: 13px;
-  font-weight: 300;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
   color: #000;
 }
 .yamm-content .mega-vertical-nav li a {
@@ -627,7 +619,6 @@ del {
   color: #eee;
 }
 .footer .media .media-heading {
-  font-family: "Arimo", sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #fff;
@@ -673,7 +664,6 @@ del {
   padding: 10px 30px;
   background-color: rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
-  font-family: "Raleway", serif;
 }
 
 .slider-caption {
@@ -796,7 +786,6 @@ del {
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 1px;
-  font-family: "Arimo", sans-serif;
   color: #333;
 }
 .item_holder:hover {
@@ -987,7 +976,6 @@ del {
 
 /**sky form customize css**/
 .sky-form {
-  font-family: "Arimo", sans-serif;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   -ms-box-shadow: none;
@@ -1090,7 +1078,7 @@ del {
   color: #666;
   font-size: 13px;
   text-transform: uppercase;
-  font-family: "Raleway", serif;
+  font-family: "STHeiti", serif;
 }
 .product-filter-block li a:hover {
   color: #1ab394;
@@ -1223,7 +1211,6 @@ del {
 /**cart page**/
 .cart-table > thead > tr > th {
   color: #000;
-  font-family: "Raleway", serif;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -1285,7 +1272,6 @@ del {
 }
 .cart-total .table-condensed > tbody > tr > td.total {
   color: #1ab394;
-  font-family: "Raleway", serif;
   font-weight: 500;
 }
 .cart-total .table-condensed > tbody > tr > td a.shipping-calculate {
@@ -1541,5 +1527,5 @@ del {
 /** customer **/
 /*调整header下拉菜单字体*/
 .yamm-content .mega-vertical-nav li a {
-  font-size: 8px;
+  font-size: 12px;
 }
