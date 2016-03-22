@@ -29,3 +29,4 @@
 
 <%@include file="../main/subscribe.jsp"%>
 <%@include file="../main/footer.jsp"%>
+</body>
