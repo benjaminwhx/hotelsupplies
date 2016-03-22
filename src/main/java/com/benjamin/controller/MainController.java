@@ -27,10 +27,29 @@ public class MainController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index() {
-        // modelAndView的名称将会结合viewResolver配置的prefix和suffix合成一个页面的路径
-        ModelAndView modelAndView = new ModelAndView("main");
+    @RequestMapping(value = {"/index.html", "/"})
+    public String goMainPage() {
+        return "main";
+    }
+
+    @RequestMapping(value = "/login.html")
+    public String goLoginPage() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
+    public String goRegisterPage() {
+        return "register";
+    }
+
+    @RequestMapping(value = "/contact.html", method = RequestMethod.GET)
+    public String goContactPage() {
+        return "contact";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+        ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
     }
 
