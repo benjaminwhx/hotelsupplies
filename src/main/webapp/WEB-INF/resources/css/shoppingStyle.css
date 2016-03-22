@@ -225,6 +225,17 @@ del {
 .header .top-bar .lang-dropdown {
   position: relative;
 }
+.header .top-bar .lang-dropdown img {
+    object-fit: none;
+    width: 21px;
+    height: 14px;
+}
+.header .top-bar .lang-dropdown img.china {
+    object-position: 0 -54px;
+}
+.header .top-bar .lang-dropdown img.english {
+    object-position: -32px -124px;
+}
 .header .top-bar .lang-dropdown:hover .lang-drop-menu {
   display: block;
 }

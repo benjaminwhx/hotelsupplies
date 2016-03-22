@@ -24,15 +24,14 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     <ul class="list-inline">
-                        <li class="hidden-xs"><a href="#" class="offers">我的订单</a></li>
+                        <li class="hidden-xs"><a href="#" class="offers">我的收藏</a></li>
                         <li class="hidden-xs"><a href="#"><i class="pe-7s-user"></i> 注册</a></li>
                         <li><a href="#"><i class="pe-7s-lock"></i> 登录</a></li>
                         <li class="lang-dropdown">
-                            <a href="#"><img src="/myimg/shopping/flag1.png" alt=""> English <i class="fa fa-angle-down"></i></a>
+                            <a href="#"><img class="china" src="/myimg/shopping/flag.jpg" alt=""> 中文 <i class="fa fa-angle-down"></i></a>
                             <div class="lang-drop-menu">
-                                <a href="#"><img src="/myimg/shopping/flag1.png" alt=""> English</a>
-                                <a href="#"><img src="/myimg/shopping/flag2.png" alt=""> French</a>
-                                <a href="#"><img src="/myimg/shopping/flag3.png" alt=""> German</a>
+                                <a href="#"><img class="china" src="/myimg/shopping/flag.jpg" alt=""> 中文</a>
+                                <a href="#"><img class="english" src="/myimg/shopping/flag.jpg" alt=""> 英文</a>
                             </div>
                         </li>
                         <li><a href="javascript:void(0)" class="search-toggle"><i class="fa fa-search"></i></a></li>
@@ -456,79 +455,6 @@
                             <li><a href="#">收藏列表</a></li>
                         </ul>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true"><i class="pe-7s-cart"></i> <span class="badge">5</span></a>
-                        <div class="dropdown-menu shopping-cart">
-
-                            <div class="cart-items content-scroll">
-                                <div class="cart-item clearfix">
-                                    <div class="img">
-                                        <img src="/myimg/shopping/men/1.jpg" alt="" class="img-responsive">
-                                    </div><!--img-->
-                                    <div class="description">
-                                        <a href="#">Mauris et ligula quis</a><strong class="price">1 x $44.95</strong>
-                                    </div><!--Description-->
-                                    <div class="buttons">
-                                        <a href="#" class="fa fa-pencil"></a><a href="#" class="fa fa-trash-o"></a>
-                                    </div>
-                                </div><!--cart item-->
-                                <div class="cart-item clearfix">
-                                    <div class="img">
-                                        <img src="/myimg/shopping/men/4.jpg" alt="" class="img-responsive">
-                                    </div><!--img-->
-                                    <div class="description">
-                                        <a href="#">Mauris et ligula quis</a><strong class="price">1 x $44.95</strong>
-                                    </div><!--Description-->
-                                    <div class="buttons">
-                                        <a href="#" class="fa fa-pencil"></a><a href="#" class="fa fa-trash-o"></a>
-                                    </div>
-                                </div><!--cart item-->
-                                <div class="cart-item clearfix">
-                                    <div class="img">
-                                        <img src="/myimg/shopping/men/2.jpg" alt="" class="img-responsive">
-                                    </div><!--img-->
-                                    <div class="description">
-                                        <a href="#">Mauris et ligula quis</a><strong class="price">1 x $44.95</strong>
-                                    </div><!--Description-->
-                                    <div class="buttons">
-                                        <a href="#" class="fa fa-pencil"></a><a href="#" class="fa fa-trash-o"></a>
-                                    </div>
-                                </div><!--cart item-->
-                                <div class="cart-item clearfix">
-                                    <div class="img">
-                                        <img src="/myimg/shopping/men/3.jpg" alt="" class="img-responsive">
-                                    </div><!--img-->
-                                    <div class="description">
-                                        <a href="#">Mauris et ligula quis</a><strong class="price">1 x $44.95</strong>
-                                    </div><!--Description-->
-                                    <div class="buttons">
-                                        <a href="#" class="fa fa-pencil"></a><a href="#" class="fa fa-trash-o"></a>
-                                    </div>
-                                </div><!--cart item-->
-                                <div class="cart-item clearfix">
-                                    <div class="img">
-                                        <img src="/myimg/shopping/men/6.jpg" alt="" class="img-responsive">
-                                    </div><!--img-->
-                                    <div class="description">
-                                        <a href="#">Mauris et ligula quis</a><strong class="price">1 x $44.95</strong>
-                                    </div><!--Description-->
-                                    <div class="buttons">
-                                        <a href="#" class="fa fa-pencil"></a><a href="#" class="fa fa-trash-o"></a>
-                                    </div>
-                                </div><!--cart item-->
-                            </div><!--cart-items-->
-
-                            <div class="cart-footer">
-                                <a href="#" class="btn btn-light-dark"> View Cart</a>
-                                <a href="#" class="btn btn-skin"> Checkout</a>
-                            </div><!--footer of cart-->
-
-
-                        </div><!--cart dropdown end-->
-                    </li>
-
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
