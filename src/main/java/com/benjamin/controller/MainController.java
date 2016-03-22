@@ -40,12 +40,12 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping(value = "/register.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/register.html")
     public String goRegisterPage() {
         return "register";
     }
 
-    @RequestMapping(value = "/contact.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/contact.html")
     public String goContactPage() {
         return "contact";
     }
@@ -62,10 +62,22 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView("login");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/forgetPassword", method = RequestMethod.GET)
+    public ModelAndView forgetPassword(String email) {
+        ModelAndView modelAndView = new ModelAndView("login");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    public String contact() {
+        ModelAndView modelAndView = new ModelAndView("main");
+        return "";
     }
 
 //    @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)

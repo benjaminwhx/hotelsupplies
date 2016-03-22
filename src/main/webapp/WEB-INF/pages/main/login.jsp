@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="sky-form-login">
-                <form action="" id="sky-form" class="sky-form">
+                <form action="/login" id="sky-form" method="post" class="sky-form">
 
                     <h3 class="text-left"><i class="fa fa-unlock"></i>请用您的账户进行登录</h3>
                     <fieldset>
@@ -68,8 +68,8 @@
 
                     </footer>
                 </form><!--login form-->
-                <!--password recovery form start-->
-                <form action="sky-form/php_files/demo-login-process.php" id="sky-form2" class="sky-form sky-form-modal">
+                <!--找回密码表单 start-->
+                <form action="/forgetPassword" id="sky-form2" class="sky-form sky-form-modal">
                     <header>找回密码</header>
 
                     <fieldset>
@@ -92,8 +92,7 @@
                         <p>邮件已发出，请您登录邮箱进行查收!<br><a href="#" class="modal-closer">关闭窗口</a></p>
                     </div>
                 </form>
-
-                <!--password-recovery form end-->
+                <!--找回密码表单 end-->
             </div>
         </div><!--col end-->
         <div class="col-md-6">
@@ -138,7 +137,7 @@
                     },
                     password:
                     {
-                        required: '请输入您的邮箱地址'
+                        required: '请输入您的密码'
                     }
                 },
                 // Do not change code below
