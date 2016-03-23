@@ -162,7 +162,6 @@ del {
 .breadcrumb-wrapper h1 {
   margin: 0;
   color: #fff;
-  text-transform: uppercase;
   font-weight: 700;
   font-size: 20px;
 }
@@ -204,6 +203,9 @@ del {
 .header .top-bar ul li a {
   color: #333;
   display: block;
+}
+.header .top-bar ul li a.logout:hover {
+  color: #1ab394;
 }
 .header .top-bar ul li a img {
   margin-right: 5px;

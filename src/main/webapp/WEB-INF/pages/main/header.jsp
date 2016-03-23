@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!--search toggle form-->
 <div class="search-bar">
@@ -25,8 +26,16 @@
                 <div class="col-sm-6 text-right">
                     <ul class="list-inline">
                         <li class="hidden-xs"><a href="/collections.html" class="offers">我的收藏</a></li>
-                        <li class="hidden-xs"><a href="/register.html"><i class="pe-7s-user"></i> 注册</a></li>
-                        <li><a href="/login.html"><i class="pe-7s-lock"></i> 登录</a></li>
+                        <c:choose>
+                            <c:when test="${user.userName != null}">
+                                <li><i class="pe-7s-user"></i> ${user.userName}</li>
+                                <li><a class="logout" href="/logout"><i class="pe-7s-close-circle"></i> 注销</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="hidden-xs"><a href="/register.html"><i class="pe-7s-user"></i> 注册${user.userName}</a></li>
+                                <li><a href="/login.html"><i class="pe-7s-lock"></i> 登录</a></li>
+                            </c:otherwise>
+                        </c:choose>
                         <li class="lang-dropdown">
                             <a href="#"><img class="china" src="/myimg/shopping/flag.jpg" alt=""> 中文 <i class="fa fa-angle-down"></i></a>
                             <div class="lang-drop-menu">

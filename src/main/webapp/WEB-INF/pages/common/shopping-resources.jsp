@@ -1,3 +1,5 @@
+<link rel="shortcut icon" href=" /myimg/shopping/favicon.ico" type="image/x-icon"/>
+
 <link href="/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link href="/mycss/flexslider.css" rel="stylesheet">
 <link href="/mycss/owl.carousel.css" rel="stylesheet">
@@ -12,6 +14,7 @@
 <link href="/mycss/lightbox.css" rel="stylesheet">
 <link href="/mycss/sky-forms.css" rel="stylesheet">
 <link href="/mycss/font-css/kaushan-script.css" rel="stylesheet">
+<link href="/mycss/Pe-icon-7-stroke.css" rel="stylesheet">
 <link href="/mycss/shoppingStyle.css" rel="stylesheet">
 
 <!-- script -->

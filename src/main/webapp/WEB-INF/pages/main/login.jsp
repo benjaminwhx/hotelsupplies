@@ -14,7 +14,7 @@
 <!--breadcrumb start-->
 <div class="breadcrumb-wrapper">
     <div class="container">
-        <h1>登录 或 注册 <span>${errormsg}</span></h1>
+        <h1>登录 或 注册 <span>${msg}</span></h1>
     </div>
 </div>
 <!--end breadcrumb-->
@@ -111,41 +111,40 @@
 <%@include file="footer.jsp"%>
 <script type="text/javascript">
     $(function () {
-        $("#sky-form").validate(
+        $("#sky-form").validate({
+            rules:
             {
-                rules:
+                email:
                 {
-                    email:
-                    {
-                        required: true,
-                        email: true
-                    },
-                    password:
-                    {
-                        required: true,
-                        minlength: 3,
-                        maxlength: 20
-                    }
+                    required: true,
+                    email: true
                 },
-                // Messages for form validation
-                messages:
+                password:
                 {
-                    email:
-                    {
-                        required: '请输入您的邮箱地址',
-                        email: '请输入一个有效的邮箱地址'
-                    },
-                    password:
-                    {
-                        required: '请输入您的密码'
-                    }
-                },
-                // Do not change code below
-                errorPlacement: function (error, element)
-                {
-                    error.insertAfter(element.parent());
+                    required: true,
+                    minlength: 3,
+                    maxlength: 20
                 }
-            });
+            },
+            // Messages for form validation
+            messages:
+            {
+                email:
+                {
+                    required: '请输入您的邮箱地址',
+                    email: '请输入一个有效的邮箱地址'
+                },
+                password:
+                {
+                    required: '请输入您的密码'
+                }
+            },
+            // Do not change code below
+            errorPlacement: function (error, element)
+            {
+                error.insertAfter(element.parent());
+            }
+        });
 
         // Validation for recovery form
         $("#sky-form2").validate({
@@ -170,17 +169,16 @@
             // Ajax form submition
             submitHandler: function (form)
             {
-                $(form).ajaxSubmit(
-                        {
-                            beforeSend: function ()
-                            {
-                                $('#sky-form button[type="submit"]').attr('disabled', true);
-                            },
-                            success: function ()
-                            {
-                                $("#sky-form2").addClass('submited');
-                            }
-                        });
+                $(form).ajaxSubmit({
+                    beforeSend: function ()
+                    {
+                        $('#sky-form button[type="submit"]').attr('disabled', true);
+                    },
+                    success: function ()
+                    {
+                        $("#sky-form2").addClass('submited');
+                    }
+                });
             },
             // Do not change code below
             errorPlacement: function (error, element)
