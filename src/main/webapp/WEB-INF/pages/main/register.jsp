@@ -15,7 +15,7 @@
 <!--breadcrumb start-->
 <div class="breadcrumb-wrapper">
     <div class="container">
-        <h1>登录 或 注册</h1>
+        <h1>登录 或 注册 <span>${msg}</span></h1>
     </div>
 </div>
 <!--end breadcrumb-->
@@ -25,14 +25,14 @@
     <div class="row">
         <div class="col-md-6">
             <div class="sky-form-login">
-                <form action="" id="sky-form" class="sky-form">
+                <form action="/register" id="sky-form" method="post" class="sky-form">
                     <h3 class="text-left"><i class="fa fa-user"></i>创建一个新的账户</h3>
 
                     <fieldset>
                         <section>
                             <label class="input">
                                 <i class="icon-append fa fa-user"></i>
-                                <input type="text" name="username" placeholder="用户名">
+                                <input type="text" name="userName" placeholder="用户名">
                                 <b class="tooltip tooltip-bottom-right">输入用户名</b>
                             </label>
                         </section>
@@ -56,25 +56,10 @@
                         <section>
                             <label class="input">
                                 <i class="icon-append fa fa-lock"></i>
-                                <input type="password" name="passwordConfirm" placeholder="密码确认">
+                                <input type="password" name="password_again" placeholder="密码确认">
                                 <b class="tooltip tooltip-bottom-right">请确认您的密码</b>
                             </label>
                         </section>
-                    </fieldset>
-
-                    <fieldset>
-                        <div class="row">
-                            <section class="col col-6">
-                                <label class="input">
-                                    <input type="text" name="firstname" placeholder="姓">
-                                </label>
-                            </section>
-                            <section class="col col-6">
-                                <label class="input">
-                                    <input type="text" name="lastname" placeholder="名">
-                                </label>
-                            </section>
-                        </div>
 
                         <section>
                             <label class="select">
@@ -87,9 +72,31 @@
                                 <i></i>
                             </label>
                         </section>
+                    </fieldset>
 
+                    <fieldset>
                         <section>
-                            <label class="checkbox"><input type="checkbox" name="subscription" id="subscription"><i></i>我想收到最新的邮件通知</label>
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                <input type="text" name="truename" placeholder="真实姓名">
+                                <b class="tooltip tooltip-bottom-right">输入真实姓名</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-qq"></i>
+                                <input type="text" name="qq" placeholder="QQ">
+                                <b class="tooltip tooltip-bottom-right">输入QQ号</b>
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                <i class="icon-append fa fa-bank"></i>
+                                <input type="text" name="address" placeholder="家庭地址">
+                                <b class="tooltip tooltip-bottom-right">输入地址</b>
+                            </label>
+                        </section>
+                        <section>
                             <label class="checkbox"><input type="checkbox" name="terms" id="terms"><i></i>我同意本站的条款</label>
                         </section>
                     </fieldset>
@@ -116,5 +123,73 @@
 <div class="space-60"></div>
 
 <%@include file="footer.jsp"%>
+<script type="text/javascript">
+    $(function(){
+        jQuery.validator.addMethod("checkUserName", function(value, element, param) {
+            var reg = /^[a-zA-Z0-9_]{3,16}$/;
+            return this.optional(element) || (reg.test(value));
+        }, jQuery.validator.format("请输入{0}-{1}位包含数字字母下划线的用户名!"));
+        jQuery.validator.addMethod("checkPassword", function(value, element) {
+            var reg = /^[^\s]{6,18}$/;
+            return this.optional(element) || (reg.test(value));
+        }, "请输入6-18位的有效密码!");
+        jQuery.validator.addMethod("checkQQ", function(value, element) {
+           var reg = /^[1-9][0-9]{4,}$/;
+            return this.optional(element) || (reg.test(value));
+        }, "请输入正确的QQ号码!");
+        $('#sky-form').validate({
+            rules: {
+                userName: {
+                    required: true,
+                    checkUserName: [3, 16]
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true,
+                    checkPassword: true
+                },
+                password_again: {
+                    equalTo: "#password"
+                },
+                qq: {
+                    checkQQ: true
+                },
+                gender: {
+                    required: true
+                },
+                terms: {
+                    required: true
+                }
+            },
+            messages: {
+                userName: {
+                    required: "请输入您的用户名"
+                },
+                password: {
+                    required: "请输入您的密码"
+                },
+                email: {
+                    required: '请输入您的邮箱地址',
+                    email: '请输入一个有效的邮箱地址'
+                },
+                password_again: {
+                    equalTo: "密码输入不一致，请重新输入"
+                },
+                gender: {
+                    required: "请选择您的性别"
+                },
+                terms: {
+                    required: "请同意条款再创建账户"
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+    });
+</script>
 </body>
 </html>

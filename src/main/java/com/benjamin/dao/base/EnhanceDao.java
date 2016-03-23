@@ -108,7 +108,7 @@ public class EnhanceDao<T, ID extends Serializable> extends BaseDao<T, ID> {
      * 按属性查找对象列表,支持多种匹配方式.
      *
      * @param matchType
-     *            匹配方式,目前支持的取值见PropertyFilter的MatcheType enum.
+     *            匹配方式,目前支持的取值见PropertyFilter的MatcheType.
      */
     public List<T> findBy(final String propertyName, final Object value, final PropertyFilter.MatchType matchType) {
         Criterion criterion = buildCriterion(propertyName, value, matchType);
