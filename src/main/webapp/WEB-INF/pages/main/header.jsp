@@ -37,10 +37,10 @@
                             </c:otherwise>
                         </c:choose>
                         <li class="lang-dropdown">
-                            <a href="#"><img class="china" src="/myimg/shopping/flag.jpg" alt=""> 中文 <i class="fa fa-angle-down"></i></a>
+                            <a href="#"><img src="/myimg/shopping/flag_cn.jpg" alt=""> 中文 <i class="fa fa-angle-down"></i></a>
                             <div class="lang-drop-menu">
-                                <a href="#"><img class="china" src="/myimg/shopping/flag.jpg" alt=""> 中文</a>
-                                <a href="#"><img class="english" src="/myimg/shopping/flag.jpg" alt=""> 英文</a>
+                                <a href="#"><img src="/myimg/shopping/flag_cn.jpg" alt=""> 中文</a>
+                                <a href="#"><img src="/myimg/shopping/flag_es.png" alt=""> 英文</a>
                             </div>
                         </li>
                         <li><a href="javascript:void(0)" class="search-toggle"><i class="fa fa-search"></i></a></li>
