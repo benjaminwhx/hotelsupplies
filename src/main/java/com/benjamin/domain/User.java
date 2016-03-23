@@ -5,6 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by piqiu on 2/17/16.
@@ -13,7 +14,6 @@ import java.io.Serializable;
 @Table(name = "user")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class User extends BaseDomain implements Serializable{
-
     private static final long serialVersionUID = 1645588030306171446L;
     @Column(name = "username", nullable = false)
     private String userName;
@@ -31,6 +31,8 @@ public class User extends BaseDomain implements Serializable{
     private String address;
     @Column(name = "ipaddress", nullable = true)
     private String ipAddress;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.REMOVE})
+    private List<Collections> collectionsList;
 
     public User(){}
 
@@ -43,10 +45,6 @@ public class User extends BaseDomain implements Serializable{
         this.qq = qq;
         this.address = address;
         this.ipAddress = ipAddress;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public String getUserName() {
@@ -111,5 +109,13 @@ public class User extends BaseDomain implements Serializable{
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public List<Collections> getCollectionsList() {
+        return collectionsList;
+    }
+
+    public void setCollectionsList(List<Collections> collectionsList) {
+        this.collectionsList = collectionsList;
     }
 }
