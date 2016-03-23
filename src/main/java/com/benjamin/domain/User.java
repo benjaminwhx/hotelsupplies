@@ -29,10 +29,12 @@ public class User extends BaseDomain implements Serializable{
     private Integer qq;
     @Column(name = "address", nullable = true)
     private String address;
+    @Column(name = "ipaddress", nullable = true)
+    private String ipAddress;
 
     public User(){}
 
-    public User(String userName, String email, String password, int gender, String trueName, Integer qq, String address) {
+    public User(String userName, String email, String password, int gender, String trueName, Integer qq, String address, String ipAddress) {
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -40,6 +42,7 @@ public class User extends BaseDomain implements Serializable{
         this.trueName = trueName;
         this.qq = qq;
         this.address = address;
+        this.ipAddress = ipAddress;
     }
 
     public static long getSerialVersionUID() {
@@ -100,5 +103,13 @@ public class User extends BaseDomain implements Serializable{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 }

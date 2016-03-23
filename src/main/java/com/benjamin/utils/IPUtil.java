@@ -1,10 +1,16 @@
 package com.benjamin.utils;
 
+import org.apache.commons.lang.StringUtils;
+
+import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 /**
  * Created by piqiu on 2/25/16.
  * ip转换工具类
  */
-public class IP2Long {
+public class IPUtil {
 
     //将127.0.0.1形式的IP地址转换成十进制整数，这里没有进行任何错误处理
     public static long ipToLong(String strIp) {
@@ -38,12 +44,30 @@ public class IP2Long {
         return sb.toString();
     }
 
+    public static String getIp(HttpServletRequest request) {
+        String ip = request.getHeader("X-Forwarded-For");
+        if(StringUtils.isNotEmpty(ip) && !"unKnown".equalsIgnoreCase(ip)){
+            //多次反向代理后会有多个ip值，第一个ip才是真实ip
+            int index = ip.indexOf(",");
+            if(index != -1){
+                return ip.substring(0,index);
+            }else{
+                return ip;
+            }
+        }
+        ip = request.getHeader("X-Real-IP");
+        if(StringUtils.isNotEmpty(ip) && !"unKnown".equalsIgnoreCase(ip)){
+            return ip;
+        }
+        return request.getRemoteAddr();
+    }
+
     public static void main(String[] args) {
         String ipStr = "192.168.0.1";
-        long longIp = IP2Long.ipToLong(ipStr);
+        long longIp = IPUtil.ipToLong(ipStr);
         System.out.println("192.168.0.1 的整数形式为：" + longIp);
         System.out.println("整数" + longIp + "转化成字符串IP地址："
-                + IP2Long.longToIP(longIp));
+                + IPUtil.longToIP(longIp));
         //ip地址转化成二进制形式输出
         System.out.println("192.168.0.1 的二进制形式为：" + Long.toBinaryString(longIp));
 

@@ -4,6 +4,7 @@ import com.benjamin.common.session.UserSession;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
 import com.benjamin.service.UserService;
+import com.benjamin.utils.IPUtil;
 import com.benjamin.utils.mail.MailSenderInfo;
 import com.benjamin.utils.mail.SimpleMailSender;
 import org.slf4j.Logger;
@@ -98,8 +99,10 @@ public class MainController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(User user, RedirectAttributes redirectAttributes, HttpSession session) {
+    public String register(User user, RedirectAttributes redirectAttributes, HttpServletRequest request, HttpSession session) {
         CheckResult checkResult = userService.checkUserNameAndEmail(user.getUserName(), user.getEmail());
+        String ip = IPUtil.getIp(request);
+        user.setIpAddress(ip);
         if (checkResult.isPassCheck()) {
             userService.save(user);
             redirectAttributes.addFlashAttribute(MSG_KEY, "恭喜 " + user.getUserName() + " 注册成功!");
