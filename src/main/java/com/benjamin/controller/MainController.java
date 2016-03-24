@@ -33,43 +33,35 @@ public class MainController {
     @Autowired
     private UserService userService;
 
+    /** 访问主页 **/
     @RequestMapping(value = {"/index.html", "/"})
-    public ModelAndView goMainPage(HttpSession session) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("main");
-        if (session.getAttribute("user") != null) {
-            modelAndView.addObject(session.getAttribute("user"));
-        }
-        return modelAndView;
+    public String goMainPage() {
+        return "main";
     }
 
+    /** 访问登录页 **/
     @RequestMapping(value = "/login.html")
-    public String goLoginPage(HttpSession session, RedirectAttributes redirectAttributes) {
-        if (session.getAttribute("user") != null) {
-            redirectAttributes.addFlashAttribute(session.getAttribute("user"));
-            return "redirect:/index.html";
-        }
+    public String goLoginPage() {
         return "login";
     }
 
+    /** 访问注册页 **/
     @RequestMapping(value = "/register.html")
-    public String goRegisterPage(HttpSession session, RedirectAttributes redirectAttributes) {
-        if (session.getAttribute("user") != null) {
-            redirectAttributes.addFlashAttribute(session.getAttribute("user"));
-            return "redirect:/index.html";
-        }
+    public String goRegisterPage() {
         return "register";
     }
 
+    /** 进入联系页 **/
     @RequestMapping(value = "/contact.html")
     public String goContactPage() {
         return "contact";
     }
 
-    @RequestMapping(value = "/collections.html", method = RequestMethod.GET)
-    public ModelAndView showCollectionsPage(RedirectAttributes redirectAttributes) {
+    /** 进入个人收藏页 **/
+    @RequestMapping(value = "/collections.html")
+    public ModelAndView showCollectionsPage(HttpSession session, RedirectAttributes redirectAttributes) {
         ModelAndView modelAndView = new ModelAndView();
-        if (UserSession.get("user") == null) {
+        if (session.getAttribute("userName") == null) {
             modelAndView.setViewName("redirect:/login.html");
             redirectAttributes.addFlashAttribute(MSG_KEY, NO_LOGIN_ERROR_MSG);
             return modelAndView;
@@ -81,7 +73,7 @@ public class MainController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
      public ModelAndView login(User user, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
-        if (session.getAttribute("user") != null) {
+        if (session.getAttribute("userName") != null) {
             modelAndView.setViewName("redirect:/index.html");
             modelAndView.addObject("userName", user.getUserName());
         } else {
@@ -89,7 +81,7 @@ public class MainController {
             if (result != null) {
                 modelAndView.setViewName("redirect:/index.html");
                 modelAndView.addObject(result);
-                session.setAttribute("user", result);
+                session.setAttribute("userName", result.getUserName());
             } else {
                 modelAndView.setViewName("login");
                 modelAndView.addObject(MSG_KEY, "用户名或密码错误!");
@@ -99,7 +91,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(User user, RedirectAttributes redirectAttributes, HttpServletRequest request, HttpSession session) {
+    public String register(User user, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         CheckResult checkResult = userService.checkUserNameAndEmail(user.getUserName(), user.getEmail());
         String ip = IPUtil.getIp(request);
         user.setIpAddress(ip);
@@ -115,7 +107,7 @@ public class MainController {
 
     @RequestMapping(value = "/logout")
     public String logout(HttpSession session) {
-        session.removeAttribute("user");
+        session.removeAttribute("userName");
         return "redirect:/login.html";
     }
 

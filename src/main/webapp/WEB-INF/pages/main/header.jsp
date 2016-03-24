@@ -27,12 +27,12 @@
                     <ul class="list-inline">
                         <li class="hidden-xs"><a href="/collections.html" class="offers">我的收藏</a></li>
                         <c:choose>
-                            <c:when test="${user.userName != null}">
-                                <li><i class="pe-7s-user"></i> ${user.userName}</li>
+                            <c:when test="${userName != null}">
+                                <li><i class="pe-7s-user"></i> ${userName}</li>
                                 <li><a class="logout" href="/logout"><i class="pe-7s-close-circle"></i> 注销</a></li>
                             </c:when>
                             <c:otherwise>
-                                <li class="hidden-xs"><a href="/register.html"><i class="pe-7s-user"></i> 注册${user.userName}</a></li>
+                                <li class="hidden-xs"><a href="/register.html"><i class="pe-7s-user"></i> 注册</a></li>
                                 <li><a href="/login.html"><i class="pe-7s-lock"></i> 登录</a></li>
                             </c:otherwise>
                         </c:choose>
