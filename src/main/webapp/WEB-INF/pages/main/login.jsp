@@ -14,7 +14,7 @@
 <!--breadcrumb start-->
 <div class="breadcrumb-wrapper">
     <div class="container">
-        <h1>登录 或 注册</h1>
+        <h1>登录 或 注册 <span>${msg}</span></h1>
     </div>
 </div>
 <!--end breadcrumb-->
@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="sky-form-login">
-                <form action="" id="sky-form" class="sky-form">
+                <form action="/login" id="sky-form" method="post" class="sky-form">
 
                     <h3 class="text-left"><i class="fa fa-unlock"></i>请用您的账户进行登录</h3>
                     <fieldset>
@@ -68,8 +68,8 @@
 
                     </footer>
                 </form><!--login form-->
-                <!--password recovery form start-->
-                <form action="sky-form/php_files/demo-login-process.php" id="sky-form2" class="sky-form sky-form-modal">
+                <!--找回密码表单 start-->
+                <form action="/forgetPassword" id="sky-form2" class="sky-form sky-form-modal">
                     <header>找回密码</header>
 
                     <fieldset>
@@ -92,8 +92,7 @@
                         <p>邮件已发出，请您登录邮箱进行查收!<br><a href="#" class="modal-closer">关闭窗口</a></p>
                     </div>
                 </form>
-
-                <!--password-recovery form end-->
+                <!--找回密码表单 end-->
             </div>
         </div><!--col end-->
         <div class="col-md-6">
@@ -112,41 +111,40 @@
 <%@include file="footer.jsp"%>
 <script type="text/javascript">
     $(function () {
-        $("#sky-form").validate(
+        $("#sky-form").validate({
+            rules:
             {
-                rules:
+                email:
                 {
-                    email:
-                    {
-                        required: true,
-                        email: true
-                    },
-                    password:
-                    {
-                        required: true,
-                        minlength: 3,
-                        maxlength: 20
-                    }
+                    required: true,
+                    email: true
                 },
-                // Messages for form validation
-                messages:
+                password:
                 {
-                    email:
-                    {
-                        required: '请输入您的邮箱地址',
-                        email: '请输入一个有效的邮箱地址'
-                    },
-                    password:
-                    {
-                        required: '请输入您的邮箱地址'
-                    }
-                },
-                // Do not change code below
-                errorPlacement: function (error, element)
-                {
-                    error.insertAfter(element.parent());
+                    required: true,
+                    minlength: 3,
+                    maxlength: 20
                 }
-            });
+            },
+            // Messages for form validation
+            messages:
+            {
+                email:
+                {
+                    required: '请输入您的邮箱地址',
+                    email: '请输入一个有效的邮箱地址'
+                },
+                password:
+                {
+                    required: '请输入您的密码'
+                }
+            },
+            // Do not change code below
+            errorPlacement: function (error, element)
+            {
+                error.insertAfter(element.parent());
+            }
+        });
 
         // Validation for recovery form
         $("#sky-form2").validate({
@@ -171,17 +169,16 @@
             // Ajax form submition
             submitHandler: function (form)
             {
-                $(form).ajaxSubmit(
-                        {
-                            beforeSend: function ()
-                            {
-                                $('#sky-form button[type="submit"]').attr('disabled', true);
-                            },
-                            success: function ()
-                            {
-                                $("#sky-form2").addClass('submited');
-                            }
-                        });
+                $(form).ajaxSubmit({
+                    beforeSend: function ()
+                    {
+                        $('#sky-form button[type="submit"]').attr('disabled', true);
+                    },
+                    success: function ()
+                    {
+                        $("#sky-form2").addClass('submited');
+                    }
+                });
             },
             // Do not change code below
             errorPlacement: function (error, element)
