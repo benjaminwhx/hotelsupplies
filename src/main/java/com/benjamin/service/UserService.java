@@ -21,11 +21,6 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public User findUserByUserName(String userName) {
-        return userDao.findUniqueBy("userName", userName);
-    }
-
     public void save(User user) {
         userDao.saveOrUpdate(user);
     }
@@ -47,8 +42,22 @@ public class UserService {
         return null;
     }
 
+    public String getTokenByUserName(String userName) {
+        return userDao.findUnique("select u.token from User u where u.userName = ?", userName);
+    }
+
+    public boolean updateToken(String userName, String token) {
+        int result = userDao.batchExecute("update User set token = ? where userName = ?", token, userName);
+        return result > 0;
+    }
+
+    /**
+     * check userName and email is not exists
+     * @param userName
+     * @param email
+     * @return
+     */
     public CheckResult checkUserNameAndEmail(String userName, String email) {
-        User user = new User();
         CheckResult checkResult = new CheckResult();
         List<User> userList = userDao.find(" from User where email = ? or userName = ?", email, userName);
         if (userList!= null && userList.size() > 0) {
@@ -60,8 +69,7 @@ public class UserService {
         return checkResult;
     }
 
-    public User find(Long id){
-        User user = userDao.findUnique(" from User where id = ?", id);
-        return user;
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 }

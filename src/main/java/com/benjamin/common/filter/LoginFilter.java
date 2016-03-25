@@ -1,6 +1,16 @@
 package com.benjamin.common.filter;
 
+import com.benjamin.common.CookieManager;
+import com.benjamin.controller.MainController;
+import com.benjamin.service.UserService;
+import com.benjamin.utils.JudgeNullUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import javax.servlet.*;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,9 +20,14 @@ import java.io.IOException;
  * Created by piqiu on 16/3/24.
  */
 public class LoginFilter implements Filter {
+    private Logger logger = LoggerFactory.getLogger(LoginFilter.class);
+    private UserService userService;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        ServletContext servletContext = filterConfig.getServletContext();
+        ApplicationContext ctx = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
+        userService = (UserService) ctx.getBean("userService");
     }
 
     @Override
@@ -31,16 +46,33 @@ public class LoginFilter implements Filter {
         String userName = (String)session.getAttribute("userName");
 
         if (userName == null || "".equals(userName)) {
-            filterChain.doFilter(request, response);
+            // 检查cookie值是否正确
+            // true设置session，继续执行
+            // false，删除cookie
+            Cookie tokenCookie = CookieManager.getCookieByName(servletRequest, MainController.REMEMBER_LOGIN_STATUS_TOKEN_KEY);
+            Cookie userNameCookie = CookieManager.getCookieByName(servletRequest, MainController.USERNAME_COOKIE_KEY);
+            if (tokenCookie != null && !JudgeNullUtils.isStrEmpty(tokenCookie.getValue()) &&
+                    userNameCookie != null && !JudgeNullUtils.isStrEmpty(userNameCookie.getValue())) {
+                String token = userService.getTokenByUserName(userNameCookie.getValue());
+                if (!JudgeNullUtils.isStrEmpty(token)) {
+                    if (token.equals(tokenCookie.getValue())) {
+                        session.setAttribute("userName", userNameCookie.getValue());
+                    } else {
+                        CookieManager.addCookie(servletResponse, MainController.REMEMBER_LOGIN_STATUS_TOKEN_KEY, null, 0);
+                        CookieManager.addCookie(servletResponse, MainController.USERNAME_COOKIE_KEY, null, 0);
+                    }
+                } else {
+                    logger.error("userNameCookie is not same to tokenCookie");
+                }
+            }
         } else {
             // 用户登录了就不允许进入登录和注册页面
             if (checkPage(path)) {
                 servletResponse.sendRedirect("/index.html");
                 return;
-            } else {
-                filterChain.doFilter(request, response);
             }
         }
+        filterChain.doFilter(request, response);
     }
 
     private boolean checkPage(String path) {

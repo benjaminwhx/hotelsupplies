@@ -1,11 +1,14 @@
 package com.benjamin.controller;
 
+import com.benjamin.common.CookieManager;
 import com.benjamin.common.session.UserSession;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
 import com.benjamin.service.UserService;
 import com.benjamin.utils.BCrypt;
 import com.benjamin.utils.IPUtil;
+import com.benjamin.utils.MD5Util;
+import com.benjamin.utils.RandomUtil;
 import com.benjamin.utils.mail.MailSenderInfo;
 import com.benjamin.utils.mail.SimpleMailSender;
 import org.slf4j.Logger;
@@ -17,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.ArrayList;
@@ -30,6 +35,8 @@ import java.util.List;
 public class MainController {
     private static final String NO_LOGIN_ERROR_MSG = "您还没有登录，请登录后再进行操作!";
     private static final String MSG_KEY = "msg";
+    public static final String REMEMBER_LOGIN_STATUS_TOKEN_KEY = "YS_RM_TOKEN";
+    public static final String USERNAME_COOKIE_KEY= "YS_EM";
     Logger logger = LoggerFactory.getLogger(MainController.class);
     @Autowired
     private UserService userService;
@@ -72,16 +79,31 @@ public class MainController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-     public ModelAndView login(User user, HttpSession session) {
+     public ModelAndView login(User user, HttpServletRequest request, HttpSession session, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         if (session.getAttribute("userName") != null) {
+            logger.error("login to the error process");
             modelAndView.setViewName("redirect:/index.html");
         } else {
             String userName = userService.login(user.getEmail(), user.getPassword());
             if (userName != null) {
-                modelAndView.setViewName("redirect:/index.html");
                 // 登录成功把用户名放入session
-                session.setAttribute("userName",userName);
+                session.setAttribute("userName", userName);
+                String remember = request.getParameter("remember");
+                if (remember != null && "on".equals(remember)) {
+                    String randomAlphabet = RandomUtil.getRandomAlphabet(10);
+                    // token值为 用户名+随机生成的数 加密md5得到
+                    String token = MD5Util.MD5(userName + randomAlphabet);
+                    logger.info("user " + userName + " open remember me, default two weeks. token value is: " + token);
+                    // 更新库里面的token值
+                    if (userService.updateToken(userName, token)) {
+                        CookieManager.addCookie(response, REMEMBER_LOGIN_STATUS_TOKEN_KEY, token, 14* 24* 60* 60);
+                        CookieManager.addCookie(response, USERNAME_COOKIE_KEY, userName, 14* 24* 60* 60);
+                    } else {
+                        logger.error("update token error.");
+                    }
+                }
+                modelAndView.setViewName("redirect:/index.html");
             } else {
                 modelAndView.setViewName("login");
                 modelAndView.addObject(MSG_KEY, "邮箱或密码错误!");
@@ -107,8 +129,10 @@ public class MainController {
     }
 
     @RequestMapping(value = "/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session, HttpServletResponse response) {
         session.removeAttribute("userName");
+        CookieManager.addCookie(response, REMEMBER_LOGIN_STATUS_TOKEN_KEY, null, 0);  // 删除登录cookie
+        CookieManager.addCookie(response, USERNAME_COOKIE_KEY, null, 0);
         return "redirect:/login.html";
     }
 

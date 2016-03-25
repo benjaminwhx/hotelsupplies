@@ -31,12 +31,14 @@ public class User extends BaseDomain implements Serializable{
     private String address;
     @Column(name = "ipaddress", nullable = true)
     private String ipAddress;
+    @Column(name = "token", nullable = true)
+    private String token;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.REMOVE})
     private List<Collections> collectionsList;
 
     public User(){}
 
-    public User(String userName, String email, String password, int gender, String trueName, Integer qq, String address, String ipAddress) {
+    public User(String userName, String email, String password, int gender, String trueName, Integer qq, String address, String ipAddress, String token) {
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -45,6 +47,7 @@ public class User extends BaseDomain implements Serializable{
         this.qq = qq;
         this.address = address;
         this.ipAddress = ipAddress;
+        this.token = token;
     }
 
     public String getUserName() {
@@ -117,5 +120,13 @@ public class User extends BaseDomain implements Serializable{
 
     public void setCollectionsList(List<Collections> collectionsList) {
         this.collectionsList = collectionsList;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

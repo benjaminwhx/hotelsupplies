@@ -78,7 +78,7 @@
                         <section>
                             <label class="input">
                                 <i class="icon-append fa fa-user"></i>
-                                <input type="text" name="truename" placeholder="真实姓名">
+                                <input type="text" name="trueName" placeholder="真实姓名">
                                 <b class="tooltip tooltip-bottom-right">输入真实姓名</b>
                             </label>
                         </section>
