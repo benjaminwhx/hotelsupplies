@@ -3,6 +3,7 @@ package com.benjamin.service;
 import com.benjamin.dao.UserDao;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
+import com.benjamin.utils.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -29,9 +30,21 @@ public class UserService {
         userDao.saveOrUpdate(user);
     }
 
-    public User login(User user) {
-        User u = userDao.findUnique(" from User where email = ? and password = ?", user.getEmail(), user.getPassword());
-        return u;
+    /**
+     * login success return userName
+     * login failed return null
+     * @param email login needed email
+     * @param password  login needed password
+     * @return
+     */
+    public String login(String email, String password) {
+        User u = userDao.findUniqueBy("email", email);
+        if (u != null) {
+            if (BCrypt.checkpw(password, u.getPassword())) {
+                return u.getUserName();
+            }
+        }
+        return null;
     }
 
     public CheckResult checkUserNameAndEmail(String userName, String email) {

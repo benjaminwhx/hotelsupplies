@@ -4,6 +4,7 @@ import com.benjamin.common.session.UserSession;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
 import com.benjamin.service.UserService;
+import com.benjamin.utils.BCrypt;
 import com.benjamin.utils.IPUtil;
 import com.benjamin.utils.mail.MailSenderInfo;
 import com.benjamin.utils.mail.SimpleMailSender;
@@ -75,16 +76,15 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView();
         if (session.getAttribute("userName") != null) {
             modelAndView.setViewName("redirect:/index.html");
-            modelAndView.addObject("userName", user.getUserName());
         } else {
-            User result = userService.login(user);
-            if (result != null) {
+            String userName = userService.login(user.getEmail(), user.getPassword());
+            if (userName != null) {
                 modelAndView.setViewName("redirect:/index.html");
-                modelAndView.addObject(result);
-                session.setAttribute("userName", result.getUserName());
+                // 登录成功把用户名放入session
+                session.setAttribute("userName",userName);
             } else {
                 modelAndView.setViewName("login");
-                modelAndView.addObject(MSG_KEY, "用户名或密码错误!");
+                modelAndView.addObject(MSG_KEY, "邮箱或密码错误!");
             }
         }
         return modelAndView;
@@ -93,9 +93,10 @@ public class MainController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(User user, RedirectAttributes redirectAttributes, HttpServletRequest request) {
         CheckResult checkResult = userService.checkUserNameAndEmail(user.getUserName(), user.getEmail());
-        String ip = IPUtil.getIp(request);
-        user.setIpAddress(ip);
         if (checkResult.isPassCheck()) {
+            String ip = IPUtil.getIp(request);
+            user.setIpAddress(ip);
+            user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
             userService.save(user);
             redirectAttributes.addFlashAttribute(MSG_KEY, "恭喜 " + user.getUserName() + " 注册成功!");
             return "redirect:/login.html";
