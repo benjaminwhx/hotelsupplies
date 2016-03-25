@@ -59,8 +59,8 @@ public class UserService {
      */
     public CheckResult checkUserNameAndEmail(String userName, String email) {
         CheckResult checkResult = new CheckResult();
-        List<User> userList = userDao.find(" from User where email = ? or userName = ?", email, userName);
-        if (userList!= null && userList.size() > 0) {
+        List list = userDao.find("select 1 from User where email = ? or userName = ?", email, userName);
+        if (list!= null && list.size() > 0) {
             checkResult.setPassCheck(false);
             checkResult.setErrorResult("账号已被注册，请重新注册");
         } else {

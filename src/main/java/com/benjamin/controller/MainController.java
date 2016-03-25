@@ -15,8 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -125,6 +124,21 @@ public class MainController {
         } else {
             redirectAttributes.addFlashAttribute(MSG_KEY, checkResult.getErrorResult());
             return "redirect:/register.html";
+        }
+    }
+
+    @RequestMapping(value = "/check", method = RequestMethod.POST)
+    public @ResponseBody String checkUserNameOrEmail(String userNameOrEmail) {
+        CheckResult checkResult;
+        if (userNameOrEmail.contains("@")) {
+            checkResult = userService.checkUserNameAndEmail(null, userNameOrEmail);
+        } else {
+            checkResult = userService.checkUserNameAndEmail(userNameOrEmail, null);
+        }
+        if (checkResult.isPassCheck()) {
+            return "true";
+        } else {
+            return "false";
         }
     }
 

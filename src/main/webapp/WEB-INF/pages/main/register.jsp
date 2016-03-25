@@ -32,7 +32,7 @@
                         <section>
                             <label class="input">
                                 <i class="icon-append fa fa-user"></i>
-                                <input type="text" name="userName" placeholder="用户名">
+                                <input type="text" id="userName" name="userName" placeholder="用户名">
                                 <b class="tooltip tooltip-bottom-right">输入用户名</b>
                             </label>
                         </section>
@@ -40,7 +40,7 @@
                         <section>
                             <label class="input">
                                 <i class="icon-append fa fa-envelope-o"></i>
-                                <input type="email" name="email" placeholder="邮箱地址">
+                                <input type="email" id="email" name="email" placeholder="邮箱地址">
                                 <b class="tooltip tooltip-bottom-right">输入一个有效的邮箱地址</b>
                             </label>
                         </section>
@@ -125,27 +125,63 @@
 <%@include file="footer.jsp"%>
 <script type="text/javascript">
     $(function(){
+
         jQuery.validator.addMethod("checkUserName", function(value, element, param) {
             var reg = /^[a-zA-Z0-9_]{3,16}$/;
             return this.optional(element) || (reg.test(value));
         }, jQuery.validator.format("请输入{0}-{1}位包含数字字母下划线的用户名!"));
+
+        jQuery.validator.addMethod("checkUserNameExist", function(value, element) {
+            var isSuccess = false;
+            $.ajax({
+                type: 'post',
+                url: '/check',
+                dataType: 'text',
+                async: false,   // 一定要加这句 http://stackoverflow.com/questions/2628413/jquery-validator-and-a-custom-rule-that-uses-ajax
+                data: {userNameOrEmail: $('#userName').val()},
+                success: function(data) {
+                    isSuccess = data == "false" ? false : true;
+                }
+            });
+            return isSuccess;
+        }, "用户名已注册，请重新输入!");
+
+        jQuery.validator.addMethod("checkEmailExist", function(value, element) {
+            var isSuccess = false;
+            $.ajax({
+                type: 'post',
+                url: '/check',
+                dataType: 'text',
+                async: false,
+                data: {userNameOrEmail: $('#email').val()},
+                success: function(data) {
+                    isSuccess = data == "false" ? false : true;
+                }
+            });
+            return isSuccess;
+        }, "邮箱已注册，请重新输入!");
+
         jQuery.validator.addMethod("checkPassword", function(value, element) {
             var reg = /^[^\s]{6,18}$/;
             return this.optional(element) || (reg.test(value));
         }, "请输入6-18位的有效密码!");
+
         jQuery.validator.addMethod("checkQQ", function(value, element) {
            var reg = /^[1-9][0-9]{4,}$/;
             return this.optional(element) || (reg.test(value));
         }, "请输入正确的QQ号码!");
+
         $('#sky-form').validate({
             rules: {
                 userName: {
                     required: true,
-                    checkUserName: [3, 16]
+                    checkUserName: [3, 16],
+                    checkUserNameExist: true
                 },
                 email: {
                     required: true,
-                    email: true
+                    email: true,
+                    checkEmailExist: true
                 },
                 password: {
                     required: true,
