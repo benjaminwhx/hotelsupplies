@@ -130,6 +130,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>category</filter-name>
+        <filter-class>com.benjamin.common.filter.ProductCategoryFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>category</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!-- session超时定义,单位为分钟 -->
     <session-config>
         <session-timeout>200</session-timeout>

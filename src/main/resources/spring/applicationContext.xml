@@ -19,6 +19,10 @@
         <property name="userDao" ref="userDao" />
     </bean>
 
+    <bean id="productCategoryService" class="com.benjamin.service.ProductCategoryService">
+        <property name="productCategoryDao" ref="productCategoryDao" />
+    </bean>
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">

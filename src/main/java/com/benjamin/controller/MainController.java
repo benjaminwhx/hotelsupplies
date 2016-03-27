@@ -1,7 +1,6 @@
 package com.benjamin.controller;
 
 import com.benjamin.common.CookieManager;
-import com.benjamin.common.session.UserSession;
 import com.benjamin.domain.Advice;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
@@ -11,7 +10,6 @@ import com.benjamin.utils.BCrypt;
 import com.benjamin.utils.IPUtil;
 import com.benjamin.utils.MD5Util;
 import com.benjamin.utils.RandomUtil;
-import com.benjamin.utils.mail.MailSenderInfo;
 import com.benjamin.utils.mail.SimpleMailSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +18,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -166,24 +162,24 @@ public class MainController {
         return "success";
     }
 
-//    @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
-//    public ModelAndView add() {
-//        String[] mailToAddress = {"scarlett.meng@leandev.se"};
-//        String[] mailCCAddress = {"benjaminwhx@sina.com"};
-//        String subject = "测试2";
-//        String content = "注册地址 <a href=\\\"www.baidu.com\\\" target='_blank'>百度</a>";
-//        List<File> file = new ArrayList<>();
-//        File f1 = new File("/Users/piqiu1/Desktop/0039.txt");
-//        file.add(f1);
-//        boolean sendResult = SimpleMailSender.sendMail(mailToAddress, mailCCAddress, subject, true, content, file);
-//        if (sendResult) {
-//            System.out.println("mail send successful");
-//            logger.info("mail send successful");
-//        } else {
-//            System.out.println("mail send failed");
-//            logger.info("mail send failed");
-//        }
-//        return new ModelAndView("sendMail");
-//    }
+    @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)
+    public ModelAndView add() {
+        String[] mailToAddress = {"scarlett.meng@leandev.se"};
+        String[] mailCCAddress = {"benjaminwhx@sina.com"};
+        String subject = "测试2";
+        String content = "注册地址 <a href=\\\"www.baidu.com\\\" target='_blank'>百度</a>";
+        List<File> file = new ArrayList<>();
+        File f1 = new File("/Users/piqiu1/Desktop/0039.txt");
+        file.add(f1);
+        boolean sendResult = SimpleMailSender.sendMail(mailToAddress, mailCCAddress, subject, true, content, file);
+        if (sendResult) {
+            System.out.println("mail send successful");
+            logger.info("mail send successful");
+        } else {
+            System.out.println("mail send failed");
+            logger.info("mail send failed");
+        }
+        return new ModelAndView("sendMail");
+    }
 
 }
