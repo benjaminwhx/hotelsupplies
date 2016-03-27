@@ -2,8 +2,10 @@ package com.benjamin.controller;
 
 import com.benjamin.common.CookieManager;
 import com.benjamin.common.session.UserSession;
+import com.benjamin.domain.Advice;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
+import com.benjamin.service.AdviceService;
 import com.benjamin.service.UserService;
 import com.benjamin.utils.BCrypt;
 import com.benjamin.utils.IPUtil;
@@ -39,6 +41,8 @@ public class MainController {
     Logger logger = LoggerFactory.getLogger(MainController.class);
     @Autowired
     private UserService userService;
+    @Autowired
+    private AdviceService adviceService;
 
     /** 访问主页 **/
     @RequestMapping(value = {"/index.html", "/"})
@@ -157,9 +161,9 @@ public class MainController {
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
-    public String contact() {
-        ModelAndView modelAndView = new ModelAndView("main");
-        return "";
+    public @ResponseBody String contact(Advice advice) {
+        adviceService.save(advice);
+        return "success";
     }
 
 //    @RequestMapping(value = "/sendEmail", method = RequestMethod.GET)

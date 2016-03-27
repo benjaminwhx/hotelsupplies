@@ -17,7 +17,7 @@
         指定缓存的对象。
         下面出现的的属性覆盖上面出现的，没出现的继承上面的。
     -->
-    <cache name="com.suxiaolei.hibernate.pojos.Order" maxElementsInMemory="200" eternal="false"
+    <cache name="com.benjamin.domain.User" maxElementsInMemory="200" eternal="false"
            timeToIdleSeconds="50" timeToLiveSeconds="60" overflowToDisk="true"></cache>
 
 </ehcache>
