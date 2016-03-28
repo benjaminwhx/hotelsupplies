@@ -2,6 +2,8 @@ package com.benjamin.controller;
 
 import com.benjamin.common.CookieManager;
 import com.benjamin.domain.Advice;
+import com.benjamin.domain.Collections;
+import com.benjamin.domain.Product;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
 import com.benjamin.service.AdviceService;
@@ -68,11 +70,19 @@ public class MainController {
     @RequestMapping(value = "/collections.html")
     public ModelAndView showCollectionsPage(HttpSession session, RedirectAttributes redirectAttributes) {
         ModelAndView modelAndView = new ModelAndView();
-        if (session.getAttribute("userName") == null) {
+        String userName = (String) session.getAttribute("userName");
+        if (userName == null) {
             modelAndView.setViewName("redirect:/login.html");
             redirectAttributes.addFlashAttribute(MSG_KEY, NO_LOGIN_ERROR_MSG);
             return modelAndView;
         }
+        User currentUser = userService.getUser("userName", userName);
+        List<Product> products = new ArrayList<>();
+        List<Collections> collectionsList = currentUser.getCollectionsList();
+        for (Collections c : collectionsList) {
+            products.add(c.getProduct());
+        }
+        modelAndView.addObject(products);
         modelAndView.setViewName("collections");
         return modelAndView;
     }

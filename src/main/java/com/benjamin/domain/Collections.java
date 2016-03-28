@@ -1,10 +1,8 @@
 package com.benjamin.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Calendar;
 
 /**
  * Created by piqiu on 16/3/24.
@@ -20,6 +18,8 @@ public class Collections extends BaseDomain implements Serializable {
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+    @Column(name = "collection_date", nullable = false)
+    private Calendar collectionDate;
 
     public Product getProduct() {
         return product;
@@ -35,5 +35,13 @@ public class Collections extends BaseDomain implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Calendar getCollectionDate() {
+        return collectionDate;
+    }
+
+    public void setCollectionDate(Calendar collectionDate) {
+        this.collectionDate = collectionDate;
     }
 }

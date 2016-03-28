@@ -5,7 +5,7 @@
 <head>
     <%@ include file="/WEB-INF/pages/common/meta.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>产品列表_月升宾馆酒店用品</title>
+    <title>产品详情_月升宾馆酒店用品</title>
     <%@ include file="/WEB-INF/pages/common/bootstrap-resources.jsp" %>
     <%@ include file="/WEB-INF/pages/common/shopping-resources.jsp" %>
 </head>
@@ -15,7 +15,7 @@
 <!--breadcrumb start-->
 <div class="breadcrumb-wrapper">
     <div class="container">
-        <h1>产品 列表</h1>
+        <h1>产品 详情</h1>
     </div>
 </div>
 <!--end breadcrumb-->

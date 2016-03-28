@@ -46,6 +46,10 @@ public class UserService {
         return userDao.findUnique("select u.token from User u where u.userName = ?", userName);
     }
 
+    public User getUser(String property, Object value) {
+        return userDao.findUniqueBy(property, value);
+    }
+
     public boolean updateToken(String userName, String token) {
         int result = userDao.batchExecute("update User set token = ? where userName = ?", token, userName);
         return result > 0;
