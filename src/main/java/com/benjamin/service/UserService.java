@@ -3,6 +3,7 @@ package com.benjamin.service;
 import com.benjamin.dao.UserDao;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
+import com.benjamin.utils.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,25 +21,50 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
-    public User findUserByUserName(String userName) {
-        return userDao.findUniqueBy("userName", userName);
-    }
-
     public void save(User user) {
         userDao.saveOrUpdate(user);
     }
 
-    public User login(User user) {
-        User u = userDao.findUnique(" from User where email = ? and password = ?", user.getEmail(), user.getPassword());
-        return u;
+    /**
+     * login success return userName
+     * login failed return null
+     * @param email login needed email
+     * @param password  login needed password
+     * @return
+     */
+    public String login(String email, String password) {
+        User u = userDao.findUniqueBy("email", email);
+        if (u != null) {
+            if (BCrypt.checkpw(password, u.getPassword())) {
+                return u.getUserName();
+            }
+        }
+        return null;
     }
 
+    public String getTokenByUserName(String userName) {
+        return userDao.findUnique("select u.token from User u where u.userName = ?", userName);
+    }
+
+    public User getUser(String property, Object value) {
+        return userDao.findUniqueBy(property, value);
+    }
+
+    public boolean updateToken(String userName, String token) {
+        int result = userDao.batchExecute("update User set token = ? where userName = ?", token, userName);
+        return result > 0;
+    }
+
+    /**
+     * check userName and email is not exists
+     * @param userName
+     * @param email
+     * @return
+     */
     public CheckResult checkUserNameAndEmail(String userName, String email) {
-        User user = new User();
         CheckResult checkResult = new CheckResult();
-        List<User> userList = userDao.find(" from User where email = ? or userName = ?", email, userName);
-        if (userList!= null && userList.size() > 0) {
+        List list = userDao.find("select 1 from User where email = ? or userName = ?", email, userName);
+        if (list!= null && list.size() > 0) {
             checkResult.setPassCheck(false);
             checkResult.setErrorResult("账号已被注册，请重新注册");
         } else {
@@ -47,8 +73,7 @@ public class UserService {
         return checkResult;
     }
 
-    public User find(Long id){
-        User user = userDao.findUnique(" from User where id = ?", id);
-        return user;
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
     }
 }

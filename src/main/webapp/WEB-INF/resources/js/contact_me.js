@@ -24,7 +24,7 @@ $(function() {
                 data: {
                     name: name,
                     email: email,
-                    message: message
+                    advice: message
                 },
                 cache: false,
                 success: function() {
