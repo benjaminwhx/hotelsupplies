@@ -18,7 +18,7 @@ import java.util.Map;
  * Created by piqiu on 16/3/27.
  */
 public class ProductCategoryFilter implements Filter {
-    private Logger logger = LoggerFactory.getLogger(ProductCategoryFilter.class);
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     private ProductCategoryService productCategoryService;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -40,6 +40,7 @@ public class ProductCategoryFilter implements Filter {
         if (session.getAttribute("category") == null) {
             Map<String, Map<String, List<String>>> allCategory = productCategoryService.getAllCategory();
             session.setAttribute("category", allCategory);
+            logger.info("session中放入category");
         }
         filterChain.doFilter(request,response);
     }

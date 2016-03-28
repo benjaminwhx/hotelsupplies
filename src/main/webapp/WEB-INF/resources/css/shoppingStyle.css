@@ -1167,6 +1167,9 @@ del {
 .sidebar-widget ul li a {
   color: #999;
 }
+.sidebar-widget ul li a:hover {
+  color: #1ab394;
+}
 .sidebar-widget .media .media-heading {
   font-weight: 400;
   text-transform: uppercase;
