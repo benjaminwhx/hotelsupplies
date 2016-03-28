@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache>
     <!--如果缓存中的对象存储超过指定的缓存数量的对象存储的磁盘地址-->
-    <diskStore path="java.io.tmpdir"/>
+    <diskStore path="/tmp"/>
 
     <!--
         默认设置
         maxElementsInMemory : 在內存中最大緩存的对象数量。
-        eternal : 缓存的对象是否永远不变。
-        timeToIdleSeconds ：可以操作对象的时间。
+        maxElementsOnDisk: 磁盘中最大缓存对象数，若是0表示无穷大。
+        eternal : Element是否永久有效，一但设置了，timeout将不起作用。
+        timeToIdleSeconds ：设定允许对象处于空闲状态的最长时间，以秒为单位。当对象自从最近一次被访问后，
+            如果处于空闲状态的时间超过了timeToIdleSeconds属性值，这个对象就会过期。当对象过期，EHCache
+            将把它从缓存中清空。只有当eternal属性为false，该属性才有效。如果该属性值为0，则表示对象可以无限期地处于空闲状态。
         timeToLiveSeconds ：缓存中对象的生命周期，时间到后查询数据会从数据库中读取。
         overflowToDisk ：内存满了，是否要缓存到硬盘。
     -->
-    <defaultCache maxElementsInMemory="200" eternal="false"
+    <defaultCache maxElementsInMemory="200" maxElementsOnDisk="0" eternal="false"
                   timeToIdleSeconds="50" timeToLiveSeconds="60" overflowToDisk="true"></defaultCache>
     <!--
         指定缓存的对象。
         下面出现的的属性覆盖上面出现的，没出现的继承上面的。
     -->
-    <cache name="com.benjamin.domain.User" maxElementsInMemory="200" eternal="false"
-           timeToIdleSeconds="50" timeToLiveSeconds="60" overflowToDisk="true"></cache>
+    <cache name="user" maxElementsInMemory="200" eternal="false"
+           timeToIdleSeconds="50" timeToLiveSeconds="50" overflowToDisk="false"></cache>
+
+    <cache name="alleffective" maxElementsInMemory="1000" eternal="true" overflowToDisk="false"></cache>
 
 </ehcache>

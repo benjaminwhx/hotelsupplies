@@ -23,6 +23,8 @@
         <property name="productCategoryDao" ref="productCategoryDao" />
     </bean>
 
+    <bean id="loadCache" class="com.benjamin.common.LoadCache" init-method="init"></bean>
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">
