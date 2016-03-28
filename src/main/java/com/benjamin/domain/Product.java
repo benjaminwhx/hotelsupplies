@@ -9,7 +9,7 @@ import java.util.List;
  * 产品列表
  */
 @Entity
-@Table
+@Table(name = "product")
 public class Product extends BaseDomain implements Serializable {
     private static final long serialVersionUID = 1771446967764077311L;
     @Column(name = "name", nullable = false)
@@ -30,9 +30,11 @@ public class Product extends BaseDomain implements Serializable {
     private int stock;  // 库存，默认999
     @Column(name = "imagepath", nullable = false)
     private String imagePath;  // 商品图片存放地址，多张图片用;分隔
-
     @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.REMOVE})
     private List<Collections> collectionsList;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private ProductCategory productCategory;
 
     public List<Collections> getCollectionsList() {
         return collectionsList;
@@ -112,5 +114,13 @@ public class Product extends BaseDomain implements Serializable {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 }

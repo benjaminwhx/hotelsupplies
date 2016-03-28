@@ -1,9 +1,8 @@
 package com.benjamin.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Created by piqiu on 16/3/27.
@@ -20,6 +19,8 @@ public class ProductCategory extends BaseDomain implements Serializable {
     private String key;
     @Column(name = "level", nullable = false)
     private int level;
+    @OneToMany(mappedBy = "productCategory", fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.REMOVE})
+    private Set<Product> products;
 
     public String getCategoryName() {
         return categoryName;
