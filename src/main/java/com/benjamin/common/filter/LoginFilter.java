@@ -4,6 +4,7 @@ import com.benjamin.common.CookieManager;
 import com.benjamin.controller.MainController;
 import com.benjamin.service.UserService;
 import com.benjamin.utils.JudgeNullUtils;
+import com.benjamin.utils.cache.EhcacheUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -45,6 +46,8 @@ public class LoginFilter implements Filter {
         String path = servletRequest.getRequestURI();
         String userName = (String)session.getAttribute("userName");
 
+        putAllCacheDataToSession(session);
+
         if (userName == null || "".equals(userName)) {
             // 检查cookie值是否正确
             // true设置session，继续执行
@@ -73,6 +76,12 @@ public class LoginFilter implements Filter {
             }
         }
         filterChain.doFilter(request, response);
+    }
+
+    private void putAllCacheDataToSession(HttpSession session) {
+        if (session.getAttribute("category") == null) {
+            session.setAttribute("category", EhcacheUtil.getInstance().get("category"));
+        }
     }
 
     private boolean checkPage(String path) {
