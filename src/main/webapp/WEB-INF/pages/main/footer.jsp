@@ -6,20 +6,18 @@
             <div class="col-md-3 margin-b-30">
                 <h3>关于我们</h3>
                 <p>
-                    本网站目前所有商品只供参考，没有支付功能，如果需要，可以致电我们下单，也可以去现场订购。
+                    本网站目前所有商品只供参考，没有支付功能，可以把喜欢的商品收藏起来，如果需要，可以致电我们下单，也可以去现场订购。
                 </p>
                 <ul class="list-inline social-footer">
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Youtube"><i class="fa fa-youtube-play"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="top" data-title="Rss feeds"><i class="fa fa-rss"></i></a></li>
+                    <li><a href="https://www.facebook.com/benjaminwhx" target="_blank" data-toggle="tooltip" data-placement="top" data-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="http://weibo.com/u/5334436727?refer_flag=1005055010_&is_all=1" target="_blank" data-toggle="tooltip" data-placement="top" data-title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href="mailto:benjaminwhx@sina.com" target="_blank" data-toggle="tooltip" data-placement="top" data-title="给我发邮件"><i class="fa fa-envelope-o"></i></a></li>
+                    <li><a href="http://benjaminwhx.com" target="_blank" data-toggle="tooltip" data-placement="top" data-title="这是我的个人博客"><i class="fa fa-globe"></i></a></li>
                 </ul>
             </div>
             <div class="col-md-3">
-                <h3>其他标签 </h3>
-                <div>其他内容</div>
+                <h3>客户</h3>
+                <div>我们的客户来自祖国各地，其中泰州市80%以上宾馆酒店浴室都与我公司有密切合作，本公司秉承着低价格、高质量、服务好的宗旨迎来了一个个新的客户。</div>
             </div>
             <div class="col-md-3 margin-b-30">
                 <h3>产品标签 </h3>
@@ -55,7 +53,7 @@
                         <i class="fa fa-home"></i>
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading">江苏省泰州市海陵区温泰市场#81055-#81060</h4>
+                        <h4 class="media-heading">江苏省泰州市海陵区温泰市场#81055-#81060月升宾馆酒店用品</h4>
                     </div>
                 </div>
             </div>
@@ -66,11 +64,8 @@
     <div class="container text-center">
         <h3><a href="index.html">YueSheng</a></h3>
         <ul class="list-inline">
-            <li><a href="#">关于</a></li>
-            <li><a href="#">关于</a></li>
-            <li><a href="#">关于</a></li>
-            <li><a href="#">关于</a></li>
-            <li><a href="#">关于</a></li>
+            <li><a href="/">网站首页</a></li>
+            <li><a href="#">关于月升</a></li>
             <li><a href="#">隐私 & 条款</a></li>
         </ul>
         <p>本站由月升宾馆酒店用品提供服务。Powered by yuesheng。</p>
