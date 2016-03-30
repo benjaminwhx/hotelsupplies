@@ -1523,3 +1523,9 @@ del {
 .yamm-content .mega-vertical-nav li a {
   font-size: 12px;
 }
+
+.owl-item span {
+  text-align: center;
+  color: #f8faca;
+  display: block;
+}
