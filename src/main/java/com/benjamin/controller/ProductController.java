@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ProductController {
 
     @RequestMapping(value = "/{product}", method = RequestMethod.GET)
-    public String getProducts(@PathVariable String product, @RequestParam int level) {
+    public String getProducts(@PathVariable String product, @RequestParam(required = false) Integer level) {
         return "product-grid";
     }
 
