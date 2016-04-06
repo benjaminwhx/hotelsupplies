@@ -129,11 +129,11 @@ jQuery('.assan-newsletter').submit(function () {
 
 /** product single slider**/
 $(document).ready(function() {
-  $("#product-single").owlCarousel({
-      navigation : true, 
-      slideSpeed : 300,
-      pagination : false,
-      singleItem:true,
-      navigationText: ["<i class='pe-7s-angle-left'>", "<i class='pe-7s-angle-right'>"]
-  });
+    $("#product-single").owlCarousel({
+        navigation : true,
+        slideSpeed : 300,
+        pagination : false,
+        singleItem:true,
+        navigationText: ["<i class='pe-7s-angle-left'>", "<i class='pe-7s-angle-right'>"]
+    });
 });
