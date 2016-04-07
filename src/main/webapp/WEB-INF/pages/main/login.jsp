@@ -57,7 +57,7 @@
                             <div class="row">
                                 <div class="col col-4"></div>
                                 <div class="col col-8">
-                                    <label class="checkbox"><input type="checkbox" name="remember" checked><i></i>保持登录</label>
+                                    <label class="checkbox"><input type="checkbox" name="remember" checked><i></i>记住我</label>
                                 </div>
                             </div>
                         </section>

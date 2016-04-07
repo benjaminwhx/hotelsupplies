@@ -97,6 +97,7 @@ public class MD5Util {
 
     public static void main(String[] args)
     {
-        System.out.println(MD5("1qaz2wsx"));
+        String randomAlphabet = RandomUtil.getRandomAlphabet(20);
+        System.out.println(MD5(randomAlphabet));
     }
 }

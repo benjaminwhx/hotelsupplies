@@ -1167,6 +1167,9 @@ del {
 .sidebar-widget ul li a {
   color: #999;
 }
+.sidebar-widget ul li a:hover {
+  color: #1ab394;
+}
 .sidebar-widget .media .media-heading {
   font-weight: 400;
   text-transform: uppercase;
@@ -1519,4 +1522,10 @@ del {
 /*调整header下拉菜单字体*/
 .yamm-content .mega-vertical-nav li a {
   font-size: 12px;
+}
+
+.owl-item span {
+  text-align: center;
+  color: #f8faca;
+  display: block;
 }

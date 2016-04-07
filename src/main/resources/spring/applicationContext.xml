@@ -15,6 +15,16 @@
 
     <context:component-scan base-package= "com.benjamin.service, com.benjamin.dao"/>
 
+    <bean id="userService" class="com.benjamin.service.UserService">
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+    <bean id="productCategoryService" class="com.benjamin.service.ProductCategoryService">
+        <property name="productCategoryDao" ref="productCategoryDao" />
+    </bean>
+
+    <bean id="loadCache" class="com.benjamin.common.LoadCache" init-method="init"></bean>
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">
