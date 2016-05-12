@@ -29,16 +29,16 @@
                 <div class="col-md-5 margin-b-30">
                     <div id="product-single"  class="owl-carousel owl-theme single-product-slider">
                         <div class="item">
-                            <a href="#" data-lightbox="roadtrip"> <img src="/myimg/shopping/men/s-1.jpg" alt="Product image" class="img-responsive"></a>
+                            <a href="#" data-lightbox="roadtrip"> <img src="${path}/resources/img/shopping/men/s-1.jpg" alt="Product image" class="img-responsive"></a>
                         </div>
                         <div class="item">
-                            <a href="#" data-lightbox="roadtrip"> <img src="/myimg/shopping/men/s-2.jpg" alt="Product image" class="img-responsive"></a>
+                            <a href="#" data-lightbox="roadtrip"> <img src="${path}/resources/img/shopping/men/s-2.jpg" alt="Product image" class="img-responsive"></a>
                         </div>
                         <div class="item">
-                            <a href="#" data-lightbox="roadtrip"> <img src="/myimg/shopping/men/s-3.jpg" alt="Product image" class="img-responsive"></a>
+                            <a href="#" data-lightbox="roadtrip"> <img src="${path}/resources/img/shopping/men/s-3.jpg" alt="Product image" class="img-responsive"></a>
                         </div>
                         <div class="item">
-                            <a href="#" data-lightbox="roadtrip"> <img src="/myimg/shopping/men/s-4.jpg" alt="Product image" class="img-responsive"></a>
+                            <a href="#" data-lightbox="roadtrip"> <img src="${path}/resources/img/shopping/men/s-4.jpg" alt="Product image" class="img-responsive"></a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <a href="#">
-                                                <img class="media-object img-circle" src="/myimg/shopping/team-1.jpg" width="80" alt="...">
+                                                <img class="media-object img-circle" src="${path}/resources/img/shopping/team-1.jpg" width="80" alt="...">
                                             </a>
                                         </div>
                                         <div class="media-body">
@@ -174,7 +174,7 @@
                 <c:forEach begin="1" end="6" step="1" varStatus="c">
                     <div class="item">
                         <div class="item_holder">
-                            <a href="#"><img src="/myimg/shopping/women/${c.count}.jpg" alt="" class="img-responsive"></a>
+                            <a href="#"><img src="${path}/resources/img/shopping/women/${c.count}.jpg" alt="" class="img-responsive"></a>
                             <div class="title">
                                 <h5>产品名</h5>
                                 <span class="price">$29.99</span>

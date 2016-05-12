@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="sky-form-login">
-                <form action="/register" id="sky-form" method="post" class="sky-form">
+                <form action="${path}/register" id="sky-form" method="post" class="sky-form">
                     <h3 class="text-left"><i class="fa fa-user"></i>创建一个新的账户</h3>
 
                     <fieldset>

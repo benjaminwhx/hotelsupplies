@@ -102,7 +102,7 @@
     </nav>
 
     <div class="jumbotron">
-      <img src="/myimg/1.jpg" />
+      <img src="${path}/resources/img/1.jpg" />
     </div>
   </div>
 </body>

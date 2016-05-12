@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script src="/myjs/bootstrap-notify.js"></script>
+<script src="${path}/resources/js/bootstrap-notify.js"></script>
 <div class="newsletter">
     <div class="container">
         <div class="row">
@@ -8,7 +8,7 @@
                 <p>第一时间掌握我们的减价消息</p>
             </div>
             <div class="col-md-7">
-                <form role="form" method="post" action="/subscribe" id="sky-form" class="sky-form subscribe-form  assan-newsletter">
+                <form role="form" method="post" action="${path}/subscribe" id="sky-form" class="sky-form subscribe-form  assan-newsletter">
                     <div class="row">
                         <div class="col-sm-8">
                             <div class="form-group input">

@@ -21,7 +21,7 @@
                 <li data-transition="fade">
 
                     <!-- MAIN IMAGE -->
-                    <img src="/myimg/shopping/bg/bg-1.jpg"  alt=""  width="1920" height="600">
+                    <img src="${path}/resources/img/shopping/bg/bg-1.jpg"  alt=""  width="1920" height="600">
 
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption slider-title tp-resizeme"
@@ -70,7 +70,7 @@
                          data-splitin="none"
                          data-splitout="none"
                          data-responsive_offset="on"
-                            ><a href="/products/all">立即选购</a>
+                            ><a href="${path}/products/all">立即选购</a>
                     </div>
                 </li>
 
@@ -78,7 +78,7 @@
                 <li data-transition="fade">
 
                     <!-- MAIN IMAGE -->
-                    <img src="/myimg/shopping/bg/bg-2.jpg"  alt=""  width="1920" height="600">
+                    <img src="${path}/resources/img/shopping/bg/bg-2.jpg"  alt=""  width="1920" height="600">
 
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption slider-title tp-resizeme"
@@ -127,7 +127,7 @@
                          data-splitin="none"
                          data-splitout="none"
                          data-responsive_offset="on"
-                            ><a href="/products/all">立即选购</a>
+                            ><a href="${path}/products/all">立即选购</a>
                     </div>
                 </li>
 
@@ -135,7 +135,7 @@
                 <li data-transition="fade">
 
                     <!-- MAIN IMAGE -->
-                    <img src="/myimg/shopping/bg/bg-3.jpg"  alt=""  width="1920" height="600">
+                    <img src="${path}/resources/img/shopping/bg/bg-3.jpg"  alt=""  width="1920" height="600">
 
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption slider-title tp-resizeme"
@@ -184,7 +184,7 @@
                          data-splitin="none"
                          data-splitout="none"
                          data-responsive_offset="on"
-                            ><a href="/products/all">立即选购</a>
+                            ><a href="${path}/products/all">立即选购</a>
                     </div>
                 </li>
             </ul>
@@ -199,7 +199,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="blocks-col">
-                    <img src="/myimg/shopping/bg/bg-2.jpg" alt="" class="img-responsive">
+                    <img src="${path}/resources/img/shopping/bg/bg-2.jpg" alt="" class="img-responsive">
                     <div class="block-overlay">
                         <h4>标题</h4>
                         <p>内容</p>
@@ -208,7 +208,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="blocks-col">
-                    <img src="/myimg/shopping/bg/bg-3.jpg" alt="" class="img-responsive">
+                    <img src="${path}/resources/img/shopping/bg/bg-3.jpg" alt="" class="img-responsive">
                     <div class="block-overlay">
                         <h4>标题</h4>
                         <p>内容</p>
@@ -217,7 +217,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="blocks-col">
-                    <img src="/myimg/shopping/bg/bg-1.jpg" alt="" class="img-responsive">
+                    <img src="${path}/resources/img/shopping/bg/bg-1.jpg" alt="" class="img-responsive">
                     <div class="block-overlay">
                         <h4>标题</h4>
                         <p>内容</p>
@@ -242,7 +242,7 @@
                 <c:forEach begin="1" end="6" varStatus="c">
                     <div class="item">
                         <div class="item_holder">
-                            <a href="/products/detail/1111"><img src="/myimg/shopping/men/${c.count}.jpg" alt="" class="img-responsive"></a>
+                            <a href="${path}/products/detail/1111"><img src="${path}/resources/img/shopping/men/${c.count}.jpg" alt="" class="img-responsive"></a>
                             <div class="title">
                                 <h5>Sky-Blue <br>短袖</h5>
                                 <span class="price">$29.99</span>
@@ -263,7 +263,7 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 text-center">
                 <h1><span>最高优惠直降50%</span></h1>
-                <a href='/products/all' class="btn btn-skin btn-lg">立即选购</a>
+                <a href='${path}/products/all' class="btn btn-skin btn-lg">立即选购</a>
             </div>
         </div>
     </div>
@@ -280,7 +280,7 @@
                 <c:forEach begin="1" end="4" varStatus="c">
                     <div class="col-sm-6 col-md-3 ">
                         <div class="item_holder">
-                            <a href="/products/detail/1111"><img src="/myimg/shopping/men/${c.count}.jpg" alt="" class="img-responsive"></a>
+                            <a href="${path}/products/detail/1111"><img src="${path}/resources/img/shopping/men/${c.count}.jpg" alt="" class="img-responsive"></a>
                             <div class="title">
                                 <h5>商品名</h5>
                                 <span class="price">$29.99</span>
@@ -306,9 +306,9 @@
             <h3 class="bg-title">热销 <span>商品</span></h3>
             <c:forEach begin="1" end="4" varStatus="c">
                 <div class="media-item clearfix">
-                    <img src="/myimg/shopping/men/${2+c.count}.jpg" alt="" class="img-responsive" width="100">
+                    <img src="${path}/resources/img/shopping/men/${2+c.count}.jpg" alt="" class="img-responsive" width="100">
                     <div class="media-item-content">
-                        <h4><a href="/products/detail/1111">热销产品名</a></h4>
+                        <h4><a href="${path}/products/detail/1111">热销产品名</a></h4>
                         <span class="cat">产品</span>
                         <ul class="list-inline">
                             <li><del>$49.99</del></li>
@@ -331,9 +331,9 @@
             <h3 class="bg-title">新品 <span>上架</span></h3>
             <c:forEach begin="1" end="4" varStatus="c">
                 <div class="media-item clearfix">
-                    <img src="/myimg/shopping/men/${2+c.count}.jpg" alt="" class="img-responsive" width="100">
+                    <img src="${path}/resources/img/shopping/men/${2+c.count}.jpg" alt="" class="img-responsive" width="100">
                     <div class="media-item-content">
-                        <h4><a href="/products/detail/1111">最新产品名</a></h4>
+                        <h4><a href="${path}/products/detail/1111">最新产品名</a></h4>
                         <span class="cat">产品</span>
                         <ul class="list-inline">
                             <li><del>$49.99</del></li>
@@ -356,9 +356,9 @@
             <h3 class="bg-title">最受 <span>欢迎</span></h3>
             <c:forEach begin="1" end="4" varStatus="c">
                 <div class="media-item clearfix">
-                    <img src="/myimg/shopping/men/${2+c.count}.jpg" alt="" class="img-responsive" width="100">
+                    <img src="${path}/resources/img/shopping/men/${2+c.count}.jpg" alt="" class="img-responsive" width="100">
                     <div class="media-item-content">
-                        <h4><a href="/products/detail/1111">最受欢迎的产品名</a></h4>
+                        <h4><a href="${path}/products/detail/1111">最受欢迎的产品名</a></h4>
                         <span class="cat">产品</span>
                         <ul class="list-inline">
                             <li><del>$49.99</del></li>
@@ -433,16 +433,16 @@
         <div class="row">
             <div id="owl-partners" class="col-md-12">
 
-                <div class="item"><img src="/myimg/shopping/hotel/jd-01.jpg" alt="泰州嘉銮国际大酒店" class="img-responsive"><span>泰州嘉銮国际大酒店</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-02.jpg" alt="泰州会宾楼宾馆" class="img-responsive"><span>泰州会宾楼宾馆</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-03.png" alt="泰州美丽华大酒店" class="img-responsive"><span>泰州美丽华大酒店</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-04.jpg" alt="泰州天德湖宾馆" class="img-responsive"><span>泰州天德湖宾馆</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-05.jpg" alt="泰州宾馆" class="img-responsive"><span>泰州宾馆</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-06.jpg" alt="泰州碧桂园凤凰酒店" class="img-responsive"><span>泰州碧桂园凤凰酒店</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-07.jpg" alt="泰州锦江之星" class="img-responsive"><span>泰州锦江之星</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-08.jpg" alt="泰州富士吉大酒店" class="img-responsive"><span>泰州富士吉大酒店</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-09.jpg" alt="泰州花园假日大酒店" class="img-responsive"><span>泰州花园假日大酒店</span></div>
-                <div class="item"><img src="/myimg/shopping/hotel/jd-10.jpg" alt="泰州海洋之星宾馆" class="img-responsive"><span>泰州海洋之星宾馆</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-01.jpg" alt="泰州嘉銮国际大酒店" class="img-responsive"><span>泰州嘉銮国际大酒店</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-02.jpg" alt="泰州会宾楼宾馆" class="img-responsive"><span>泰州会宾楼宾馆</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-03.png" alt="泰州美丽华大酒店" class="img-responsive"><span>泰州美丽华大酒店</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-04.jpg" alt="泰州天德湖宾馆" class="img-responsive"><span>泰州天德湖宾馆</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-05.jpg" alt="泰州宾馆" class="img-responsive"><span>泰州宾馆</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-06.jpg" alt="泰州碧桂园凤凰酒店" class="img-responsive"><span>泰州碧桂园凤凰酒店</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-07.jpg" alt="泰州锦江之星" class="img-responsive"><span>泰州锦江之星</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-08.jpg" alt="泰州富士吉大酒店" class="img-responsive"><span>泰州富士吉大酒店</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-09.jpg" alt="泰州花园假日大酒店" class="img-responsive"><span>泰州花园假日大酒店</span></div>
+                <div class="item"><img src="${path}/resources/img/shopping/hotel/jd-10.jpg" alt="泰州海洋之星宾馆" class="img-responsive"><span>泰州海洋之星宾馆</span></div>
 
             </div>
         </div>

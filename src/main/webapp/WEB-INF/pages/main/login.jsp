@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="sky-form-login">
-                <form action="/login" id="sky-form" method="post" class="sky-form">
+                <form action="${path}/login" id="sky-form" method="post" class="sky-form">
 
                     <h3 class="text-left"><i class="fa fa-unlock"></i>请用您的账户进行登录</h3>
                     <fieldset>
@@ -63,13 +63,13 @@
                         </section>
                     </fieldset>
                     <footer class="text-right">
-                        <a href="/register.html" class="btn btn-link">注册</a>
+                        <a href="${path}/register.html" class="btn btn-link">注册</a>
                         <button type="submit" class="btn btn-lg btn-skin">登录</button>
 
                     </footer>
                 </form><!--login form-->
                 <!--找回密码表单 start-->
-                <form action="/forgetPassword" id="sky-form2" class="sky-form sky-form-modal">
+                <form action="${path}/forgetPassword" id="sky-form2" class="sky-form sky-form-modal">
                     <header>找回密码</header>
 
                     <fieldset>

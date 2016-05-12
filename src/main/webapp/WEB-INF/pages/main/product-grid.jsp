@@ -35,7 +35,7 @@
                     <c:forEach begin="1" end="3" varStatus="c">
                         <div class="col-sm-4">
                             <div class="item_holder">
-                                <a href="/products/detail/1111"><img src="/myimg/shopping/women/${c.count+1}.jpg" alt="" class="img-responsive"></a>
+                                <a href="${path}/products/detail/1111"><img src="${path}/resources/img/shopping/women/${c.count+1}.jpg" alt="" class="img-responsive"></a>
                                 <div class="title">
                                     <h5>产品名</h5>
                                     <span class="price">$29.99</span>
