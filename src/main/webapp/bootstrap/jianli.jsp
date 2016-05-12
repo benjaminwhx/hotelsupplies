@@ -14,7 +14,7 @@
     <%@ include file="/WEB-INF/pages/common/meta.jsp" %>
     <title>个人简历</title>
     <%@ include file="/WEB-INF/pages/common/travel-resources.jsp" %>
-    <link rel="stylesheet" type="text/css" href="/mycss/style.css">
+    <link rel="stylesheet" type="text/css" href="${path}/resources/css/style.css">
     <!--- Goog Fonts -->
     <link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 </head>
@@ -24,7 +24,7 @@
     <div class="header">
         <div class="container">
             <div class="header-profile">
-                <img src="/myimg/profile.png" alt="">
+                <img src="${path}/resources/img/profile.png" alt="">
             </div>
         </div>
     </div>
@@ -163,7 +163,7 @@
             </div>
         </div>
         <!--- Skill Script --->
-        <script type="text/javascript" src="/myjs/circles.js"></script>
+        <script type="text/javascript" src="${path}/resources/js/circles.js"></script>
         <script>
             var colors = [
                 ['#fff', '#2980b9'], ['#fff', '#2980b9'], ['#fff', '#2980b9'], ['#fff', '#2980b9']
@@ -278,7 +278,7 @@
                 <div class="clearfix"> </div>
             </div>
             <!--- Slider Script --->
-            <script src="/myjs/responsiveslides.min.js"></script>
+            <script src="${path}/resources/js/responsiveslides.min.js"></script>
             <script>
                 // You can also use "$(window).load(function() {"
                 $(function () {

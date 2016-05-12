@@ -29,9 +29,9 @@
 
         <!-- 图片容器 -->
         <div class="carousel-inner">
-          <div class="item"><img src="/myimg/a.jpg" alt="风景A"></div>
-          <div class="item active"><img src="/myimg/b.jpg" alt="风景B"></div>
-          <div class="item"><img src="/myimg/c.jpg" alt="风景C"></div>
+          <div class="item"><img src="${path}/resources/img/a.jpg" alt="风景A"></div>
+          <div class="item active"><img src="${path}/resources/img/b.jpg" alt="风景B"></div>
+          <div class="item"><img src="${path}/resources/img/c.jpg" alt="风景C"></div>
         </div>
 
         <!-- 小圆圈容器 -->

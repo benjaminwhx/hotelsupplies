@@ -64,7 +64,7 @@
     <div class="container text-center">
         <h3><a href="index.html">YueSheng</a></h3>
         <ul class="list-inline">
-            <li><a href="/">网站首页</a></li>
+            <li><a href="${path}/">网站首页</a></li>
             <li><a href="#">关于月升</a></li>
             <li><a href="#">隐私 & 条款</a></li>
         </ul>

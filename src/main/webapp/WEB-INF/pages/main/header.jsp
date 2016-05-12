@@ -27,22 +27,22 @@
                 </div>
                 <div class="col-sm-6 text-right">
                     <ul class="list-inline">
-                        <li class="hidden-xs"><a href="/collections.html" class="offers">我的收藏</a></li>
+                        <li class="hidden-xs"><a href="${path}/collections.html" class="offers">我的收藏</a></li>
                         <c:choose>
                             <c:when test="${userName != null}">
                                 <li><i class="pe-7s-user"></i> ${userName}</li>
-                                <li><a class="logout" href="/logout"><i class="pe-7s-close-circle"></i> 注销</a></li>
+                                <li><a class="logout" href="${path}/logout"><i class="pe-7s-close-circle"></i> 注销</a></li>
                             </c:when>
                             <c:otherwise>
-                                <li class="hidden-xs"><a href="/register.html"><i class="pe-7s-user"></i> 注册</a></li>
-                                <li><a href="/login.html"><i class="pe-7s-lock"></i> 登录</a></li>
+                                <li class="hidden-xs"><a href="${path}/register.html"><i class="pe-7s-user"></i> 注册</a></li>
+                                <li><a href="${path}/login.html"><i class="pe-7s-lock"></i> 登录</a></li>
                             </c:otherwise>
                         </c:choose>
                         <li class="lang-dropdown">
-                            <a href="#"><img src="/myimg/shopping/flag_cn.jpg" alt=""> 中文 <i class="fa fa-angle-down"></i></a>
+                            <a href="#"><img src="${path}/resources/img/shopping/flag_cn.jpg" alt=""> 中文 <i class="fa fa-angle-down"></i></a>
                             <div class="lang-drop-menu">
-                                <a href="#"><img src="/myimg/shopping/flag_cn.jpg" alt=""> 中文</a>
-                                <a href="#"><img src="/myimg/shopping/flag_es.png" alt=""> 英文</a>
+                                <a href="#"><img src="${path}/resources/img/shopping/flag_cn.jpg" alt=""> 中文</a>
+                                <a href="#"><img src="${path}/resources/img/shopping/flag_es.png" alt=""> 英文</a>
                             </div>
                         </li>
                         <li><a href="javascript:void(0)" class="search-toggle"><i class="fa fa-search"></i></a></li>
@@ -65,23 +65,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/index.html">YueSheng</a>
+                <a class="navbar-brand" href="${path}/index.html">YueSheng</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <c:forEach items="${category}" var="c">
                         <li class="dropdown yamm-fw">
-                            <a href="#" class="dropdown-toggle js-activated" onclick="window.location.href='/products/${c.key}?level=1'">${c.key}  <i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle js-activated" onclick="window.location.href='${path}/products/${c.key}?level=1'">${c.key}  <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <div class="yamm-content">
                                         <div class="row">
                                             <c:forEach items="${c.value}" var="cc">
                                                 <div class="col-sm-<fmt:formatNumber value="${12/c.value.size()}" pattern="#" minFractionDigits="0"></fmt:formatNumber>">
-                                                    <h3 class="heading"><a href="/products/${cc.key}?level=2">${cc.key}</a></h3>
+                                                    <h3 class="heading"><a href="${path}/products/${cc.key}?level=2">${cc.key}</a></h3>
                                                     <ul class="nav mega-vertical-nav">
                                                         <c:forEach items="${cc.value}" var="ccc">
-                                                            <li><a href="/products/${ccc}?level=3"><i class="fa fa-angle-right"></i> ${ccc}</a></li>
+                                                            <li><a href="${path}/products/${ccc}?level=3"><i class="fa fa-angle-right"></i> ${ccc}</a></li>
                                                         </c:forEach>
                                                     </ul>
                                                 </div>
@@ -95,8 +95,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown" role="button" aria-haspopup="true">其他 <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/contact.html">联系我们</a></li>
-                            <li><a href="/collections.html">收藏列表</a></li>
+                            <li><a href="${path}/contact.html">联系我们</a></li>
+                            <li><a href="${path}/collections.html">收藏列表</a></li>
                         </ul>
                     </li>
                 </ul>

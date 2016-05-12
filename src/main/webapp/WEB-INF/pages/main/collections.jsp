@@ -35,12 +35,12 @@
                     <div class="row">
                         <div class="col-md-4 margin-b-30">
                             <div class="product-list-thumb">
-                                <a href="/products/detail/1111"> <img src="/myimg/shopping/men/${3+cc.count}.jpg" alt="Product image" class="img-responsive"></a>
+                                <a href="${path}/products/detail/1111"> <img src="${path}/resources/img/shopping/men/${3+cc.count}.jpg" alt="Product image" class="img-responsive"></a>
                             </div>
                         </div>
                         <div class="col-md-8">
                             <div class="product-list-desc">
-                                <h3 class="title"><a href="/products/detail/1111">收藏的产品名</a></h3>
+                                <h3 class="title"><a href="${path}/products/detail/1111">收藏的产品名</a></h3>
                                 <span class="price"><del>$299.00</del> $199.00</span>
                                     <span class="rating">
                                         <i class="fa fa-star"></i>

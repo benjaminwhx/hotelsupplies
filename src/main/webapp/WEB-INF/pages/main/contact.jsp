@@ -8,7 +8,7 @@
     <title>联系我们_月升宾馆酒店用品</title>
     <%@ include file="/WEB-INF/pages/common/bootstrap-resources.jsp" %>
     <%@ include file="/WEB-INF/pages/common/shopping-resources.jsp" %>
-    <script src="/myjs/contact_me.js"></script>
+    <script src="${path}/resources/js/contact_me.js"></script>
 </head>
 <body>
 <jsp:include page="../main/header.jsp"/>
@@ -87,5 +87,5 @@
 
 <%@include file="../main/footer.jsp"%>
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
-<script src="/myjs/baidumap.js"></script>
+<script src="${path}/resources/js/baidumap.js"></script>
 </body>

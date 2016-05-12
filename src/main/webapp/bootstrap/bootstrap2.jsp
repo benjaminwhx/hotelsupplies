@@ -20,22 +20,22 @@
   <div class="container">
     <div class="col-xs-6 col-md-3">
       <a href="#" class="thumbnail">
-        <img src="/myimg/1.jpg" alt="1">
+        <img src="${path}/resources/img/1.jpg" alt="1">
       </a>
     </div>
     <div class="col-xs-6 col-md-3">
       <a href="#" class="thumbnail">
-        <img src="/myimg/1.jpg" alt="1">
+        <img src="${path}/resources/img/1.jpg" alt="1">
       </a>
     </div>
     <div class="col-xs-6 col-md-3">
       <a href="#" class="thumbnail">
-        <img src="/myimg/1.jpg" alt="1">
+        <img src="${path}/resources/img/1.jpg" alt="1">
       </a>
     </div>
     <div class="col-xs-6 col-md-3">
       <a href="#" class="thumbnail">
-        <img src="/myimg/1.jpg" alt="1">
+        <img src="${path}/resources/img/1.jpg" alt="1">
       </a>
     </div>
   </div>

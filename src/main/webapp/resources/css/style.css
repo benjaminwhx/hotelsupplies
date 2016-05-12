@@ -9,7 +9,7 @@ html,body{
 
 /*--- Header Part Starts Her ---*/
 .header {
-    background:url("/myimg/banner.jpg") no-repeat;
+    background:url("../img/banner.jpg") no-repeat;
     background-size: cover;
     -webkit-background-size:cover;
     -moz-background-size:cover;
@@ -102,7 +102,7 @@ ul.hoby li {
 ul.hoby li i {
     width: 85px;
     height: 85px;
-    background: url(/myimg/img-sprite.png) no-repeat;
+    background: url(../img/img-sprite.png) no-repeat;
     cursor: pointer;
     display: block;
 }
@@ -155,7 +155,7 @@ a.download:hover{
     -moz-transition:0.5s all;
 }
 a.download span{
-    background:url(/myimg/dold.png)no-repeat;
+    background:url(../img/dold.png)no-repeat;
     width:32px;
     height:32px;
     display:inline-block;
@@ -205,7 +205,7 @@ span.devide-line{
 label.bag{
     width:32px;
     height:32px;
-    background:url(/myimg/bag.png)no-repeat;
+    background:url(../img/bag.png)no-repeat;
     display: initial;
     position:absolute;
     top:5em;
@@ -214,7 +214,7 @@ label.bag{
 label.book{
     width:32px;
     height:32px;
-    background:url(/myimg/book.png)no-repeat;
+    background:url(../img/book.png)no-repeat;
     display: initial;
     position:absolute;
     top:5em;
@@ -228,7 +228,7 @@ label.book{
     left: 43.255em;
 }
 .exp-devide-grid-right:before{
-    content:url(/myimg/sec-d.png)no-repeat 0px 0px;
+    content:url(../img/sec-d.png)no-repeat 0px 0px;
     position:relative;
     left:-3em;
     top:1.5em;
@@ -261,7 +261,7 @@ label.book{
     left: 5.8em;
 }
 .exp-devide-grid-left:before{
-    content:url(/myimg/sec-d.png)no-repeat 0px 0px;
+    content:url(../img/sec-d.png)no-repeat 0px 0px;
     position:relative;
     left:3em;
     top:1.5em;
@@ -275,7 +275,7 @@ label.book{
     left: 43.255em;
 }
 .exp-devide-grid-rightb:before{
-    content:url(/myimg/sec-d.png)no-repeat 0px 0px;
+    content:url(../img/sec-d.png)no-repeat 0px 0px;
     position:relative;
     left:-3em;
     top:1.5em;
@@ -327,7 +327,7 @@ ul.social li{
 ul.social li i{
     width:84px;
     height:84px;
-    background:url(/myimg/social-icons.png)no-repeat;
+    background:url(../img/social-icons.png)no-repeat;
     display: inline-block;
     cursor: pointer;
 }
@@ -371,7 +371,7 @@ ul.social li i.gp{
 .award-column i{
     width:185px;
     height:185px;
-    background:url(/myimg/award-icons.png)no-repeat;
+    background:url(../img/award-icons.png)no-repeat;
     display:inline-block;
 }
 .award-column i.award{
@@ -507,7 +507,7 @@ ul.social li i.gp{
     text-decoration: none;
     height: 61px;
     width: 55px;
-    background: transparent url("/myimg/aarows.png") no-repeat left top;
+    background: transparent url("../img/aarows.png") no-repeat left top;
     margin-top: -65px;
 }
 .callbacks_nav:active {
@@ -613,7 +613,7 @@ ul.social li i.gp{
 i.twit{
     width:48px;
     height:48px;
-    background:url(/myimg/twi.png) no-repeat;
+    background:url(../img/twi.png) no-repeat;
     display: inline-block;
 }
 .slider-top p{
@@ -643,7 +643,7 @@ i.twit{
 .contact-column i{
     width:80px;
     height:80px;
-    background:url(/myimg/contact-icon.png)no-repeat;
+    background:url(../img/contact-icon.png)no-repeat;
     display: inline-block;
 }
 .contact-column i.loc{
