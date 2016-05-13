@@ -1,7 +1,7 @@
 /**/
 /* font */
 /**/
-@import url(/mycss/font-css/open-sans.css);
+@import url(font-css/open-sans.css);
 
 
 /**/
@@ -95,6 +95,9 @@
 	appearance: normal;
 	-moz-appearance: none;
 	-webkit-appearance: none;
+}
+.sky-form .input input.subscribe {
+	height: 45px;
 }
 .sky-form .progress {
 	float: right;

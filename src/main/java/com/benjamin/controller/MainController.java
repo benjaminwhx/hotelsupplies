@@ -7,6 +7,7 @@ import com.benjamin.domain.Product;
 import com.benjamin.domain.User;
 import com.benjamin.domain.bo.CheckResult;
 import com.benjamin.service.AdviceService;
+import com.benjamin.service.SubscribeService;
 import com.benjamin.service.UserService;
 import com.benjamin.utils.BCrypt;
 import com.benjamin.utils.IPUtil;
@@ -41,6 +42,8 @@ public class MainController {
     private UserService userService;
     @Autowired
     private AdviceService adviceService;
+    @Autowired
+    private SubscribeService subscribeService;
 
     /** 访问主页 **/
     @RequestMapping(value = {"/index.html", "/"})
@@ -134,6 +137,16 @@ public class MainController {
         } else {
             redirectAttributes.addFlashAttribute(MSG_KEY, checkResult.getErrorResult());
             return "redirect:/register.html";
+        }
+    }
+
+    @RequestMapping(value = "/subscribe", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+    public @ResponseBody String subscribe(String email) {
+        CheckResult checkResult = subscribeService.checkAndSave(email);
+        if (checkResult.isPassCheck()) {
+            return "true";
+        } else {
+            return checkResult.getErrorResult();
         }
     }
 

@@ -211,7 +211,7 @@ del {
   margin-right: 5px;
 }
 .header .top-bar ul li a.offers {
-  background: url(/myimg/shopping/offers.png) no-repeat;
+  background: url(../img/shopping/offers.png) no-repeat;
   width: 73px;
   height: 19px;
   padding: 0;
@@ -822,7 +822,7 @@ del {
 /**parallax**/
 .parallax {
   padding: 100px 0;
-  background: url(/myimg/shopping/bg/bg-2.jpg) no-repeat;
+  background: url(../img/shopping/bg/bg-2.jpg) no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }

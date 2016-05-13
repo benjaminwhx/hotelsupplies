@@ -6,7 +6,7 @@
         <h3>分类</h3>
         <ul class="list-unstyled">
             <c:forEach items="${category}" var="c">
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp; <a href="/products/${c.key}?level=1">${c.key}</a></li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp; <a href="${path}/products/${c.key}?level=1">${c.key}</a></li>
             </c:forEach>
         </ul>
     </div>
@@ -18,7 +18,7 @@
             <div class="media">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object" src="/myimg/shopping/men/${4+s.count}.jpg" alt="" width="70">
+                        <img class="media-object" src="${path}/resources/img/shopping/men/${4+s.count}.jpg" alt="" width="70">
                     </a>
                 </div>
                 <div class="media-body">

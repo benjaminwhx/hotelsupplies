@@ -121,7 +121,7 @@
                             <i class="fa fa-eye fa-3x"></i>
                         </div>
                     </div>
-                    <img src="/myimg/product/jd-01.jpg" class="img-responsive" alt="">
+                    <img src="${path}/resources/img/product/jd-01.jpg" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>冷柜</h4>
@@ -135,7 +135,7 @@
                             <i class="fa fa-eye fa-3x"></i>
                         </div>
                     </div>
-                    <img src="/myimg/product/jd-02.jpg" class="img-responsive" alt="">
+                    <img src="${path}/resources/img/product/jd-02.jpg" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>蛋糕柜</h4>
@@ -149,7 +149,7 @@
                             <i class="fa fa-eye fa-3x"></i>
                         </div>
                     </div>
-                    <img src="/myimg/product/jd-03.jpg" class="img-responsive" alt="">
+                    <img src="${path}/resources/img/product/jd-03.jpg" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>保险箱</h4>
@@ -163,7 +163,7 @@
                             <i class="fa fa-eye fa-3x"></i>
                         </div>
                     </div>
-                    <img src="/myimg/product/jd-04.jpg" class="img-responsive" alt="">
+                    <img src="${path}/resources/img/product/jd-04.jpg" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>冰激凌、冷饮机</h4>
@@ -177,7 +177,7 @@
                             <i class="fa fa-eye fa-3x"></i>
                         </div>
                     </div>
-                    <img src="/myimg/product/jd-05.jpg" class="img-responsive" alt="">
+                    <img src="${path}/resources/img/product/jd-05.jpg" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>制冰机</h4>
@@ -191,7 +191,7 @@
                             <i class="fa fa-eye fa-3x"></i>
                         </div>
                     </div>
-                    <img src="/myimg/product/jd-06.jpg" class="img-responsive" alt="">
+                    <img src="${path}/resources/img/product/jd-06.jpg" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
                     <h4>供应座地灯箱系列</h4>
@@ -274,7 +274,7 @@
                         <!-- Project Details Go Here -->
                         <h2>冷柜</h2>
                         <p class="item-intro text-muted">供应商用冷柜、厨房冷柜、制冷设备</p>
-                        <img class="img-responsive img-centered" src="/myimg/product/jd-01.jpg" alt="">
+                        <img class="img-responsive img-centered" src="${path}/resources/img/product/jd-01.jpg" alt="">
                         <p>
                             <ol>
                                 <li>高效节能机组，一体式设计，真正做到低噪音，高能效，环保节能，安全，稳定</li>
@@ -317,7 +317,7 @@
                     <div class="modal-body">
                         <h2>蛋糕柜</h2>
                         <p class="item-intro text-muted">供应立式、生日、面包店蛋糕柜/保鲜柜</p>
-                        <img class="img-responsive img-centered" src="/myimg/product/jd-02.jpg" alt="">
+                        <img class="img-responsive img-centered" src="${path}/resources/img/product/jd-02.jpg" alt="">
                         <p>
                             <strong>产品特点：</strong>1、正面双弧形钢化中空玻璃，豪华庄重；2、采用进口世界名牌压缩机，制冷强劲，高度保温；3、微电脑控温精确，液晶显示器准确反映柜内温度变化；
                             4、典雅高中的各色天然花岗装饰面板，可任意选择5、可选择大理石和不锈钢材质
@@ -351,7 +351,7 @@
                         <!-- Project Details Go Here -->
                         <h2>保险箱</h2>
                         <p class="item-intro text-muted"供应全能家用保险箱防盗保险柜坚固防撬</p>
-                        <img class="img-responsive img-centered" src="/myimg/product/jd-03.jpg" alt="">
+                        <img class="img-responsive img-centered" src="${path}/resources/img/product/jd-03.jpg" alt="">
                         <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
                         <ul class="list-inline">
                             <li>$价钱: XXX</li>
@@ -382,7 +382,7 @@
                         <!-- Project Details Go Here -->
                         <h2>冰激凌、冷饮机</h2>
                         <p class="item-intro text-muted">供应冰淇淋机、雪融机、冷饮机、多功能热饮机、果汁机</p>
-                        <img class="img-responsive img-centered" src="/myimg/product/jd-04.jpg" alt="">
+                        <img class="img-responsive img-centered" src="${path}/resources/img/product/jd-04.jpg" alt="">
                         <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
                         <ul class="list-inline">
                             <li>$价钱: XXX</li>
@@ -413,7 +413,7 @@
                         <!-- Project Details Go Here -->
                         <h2>制冰机</h2>
                         <p class="item-intro text-muted">供应制冷设备、酒店冰箱、低温水箱、工程制冰机、商用制冰机</p>
-                        <img class="img-responsive img-centered" src="/myimg/product/jd-05.jpg" alt="">
+                        <img class="img-responsive img-centered" src="${path}/resources/img/product/jd-05.jpg" alt="">
                         <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
                         <ul class="list-inline">
                             <li>$价钱: XXX</li>
@@ -444,7 +444,7 @@
                         <!-- Project Details Go Here -->
                         <h2>供应座地灯箱系列</h2>
                         <p class="item-intro text-muted">各式座地灯箱</p>
-                        <img class="img-responsive img-centered" src="/myimg/product/jd-06.jpg" alt="">
+                        <img class="img-responsive img-centered" src="${path}/resources/img/product/jd-06.jpg" alt="">
                         <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                         <ul class="list-inline">
                             <li>$价钱: XXX</li>
