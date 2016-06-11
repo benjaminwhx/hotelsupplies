@@ -32,7 +32,7 @@ import java.util.List;
  * Created by piqiu on 2/16/16.
  */
 @Controller
-public class MainController {
+public class MainController extends BaseController {
     private static final String NO_LOGIN_ERROR_MSG = "您还没有登录，请登录后再进行操作!";
     private static final String MSG_KEY = "msg";
     public static final String REMEMBER_LOGIN_STATUS_TOKEN_KEY = "YS_RM_TOKEN";
@@ -71,7 +71,7 @@ public class MainController {
 
     /** 进入个人收藏页 **/
     @RequestMapping(value = "/collections.html")
-    public ModelAndView showCollectionsPage(HttpSession session, RedirectAttributes redirectAttributes) {
+    public ModelAndView showCollectionsPage(RedirectAttributes redirectAttributes) {
         ModelAndView modelAndView = new ModelAndView();
         String userName = (String) session.getAttribute("userName");
         if (userName == null) {
@@ -91,7 +91,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-     public ModelAndView login(User user, HttpServletRequest request, HttpSession session, HttpServletResponse response) {
+     public ModelAndView login(User user) {
         ModelAndView modelAndView = new ModelAndView();
         if (session.getAttribute("userName") != null) {
             logger.error("login to the error process");
@@ -125,7 +125,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(User user, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+    public String register(User user, RedirectAttributes redirectAttributes) {
         CheckResult checkResult = userService.checkUserNameAndEmail(user.getUserName(), user.getEmail());
         if (checkResult.isPassCheck()) {
             String ip = IPUtil.getIp(request);
@@ -166,7 +166,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/logout")
-    public String logout(HttpSession session, HttpServletResponse response) {
+    public String logout() {
         session.removeAttribute("userName");
         CookieManager.addCookie(response, REMEMBER_LOGIN_STATUS_TOKEN_KEY, null, 0);  // 删除登录cookie
         CookieManager.addCookie(response, USERNAME_COOKIE_KEY, null, 0);
