@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping("/products")
-public class ProductController {
+public class ProductController extends BaseController {
 
     @RequestMapping(value = "/{product}", method = RequestMethod.GET)
     public String getProducts(@PathVariable String product, @RequestParam(required = false) Integer level) {
@@ -21,7 +21,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/detail/{productId}", method = RequestMethod.GET)
-    public String getProductsDetail(@PathVariable int productId, HttpServletRequest request) {
+    public String getProductsDetail(@PathVariable int productId) {
         return "product-detail";
     }
 
