@@ -16,10 +16,6 @@
 
     <context:component-scan base-package= "com.benjamin.service, com.benjamin.dao, com.benjamin.common.interceptor"/>
 
-    <bean id="userService" class="com.benjamin.service.UserService">
-        <property name="userDao" ref="userDao" />
-    </bean>
-
     <bean id="productCategoryService" class="com.benjamin.service.ProductCategoryService">
         <property name="productCategoryDao" ref="productCategoryDao" />
     </bean>

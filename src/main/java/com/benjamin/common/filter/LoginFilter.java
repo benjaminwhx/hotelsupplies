@@ -44,6 +44,11 @@ public class LoginFilter implements Filter {
         HttpSession session = servletRequest.getSession();
 
         String path = servletRequest.getRequestURI();
+        // 资源直接走
+        if (path.startsWith(servletRequest.getContextPath() + "/resources")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
         String userName = (String)session.getAttribute("userName");
 
         putAllCacheDataToSession(session);
