@@ -13,7 +13,6 @@ import java.util.List;
  * Created by benjamin on 16/4/6.
  */
 @Service
-@Transactional
 public class SubscribeService {
 
     @Autowired
