@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by piqiu on 16/3/27.
  */
 @Service
-@Transactional(propagation = Propagation.REQUIRED)
 public class AdviceService {
 
     @Autowired

@@ -16,7 +16,6 @@ import java.util.Map;
  * Created by piqiu on 16/3/27.
  */
 @Service
-@Transactional(propagation = Propagation.REQUIRED)
 public class ProductCategoryService {
 
     @Autowired
