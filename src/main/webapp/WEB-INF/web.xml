@@ -9,6 +9,12 @@
     <!-- 声明WEB应用的描述信息 -->
     <description>月升宾馆酒店用品</description>
 
+    <!-- 静态资源访问 -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/resources/*</url-pattern>
+    </servlet-mapping>
+
     <!-- 在向servlet或JSP页面制定初始化参数或定制URL时，必须首先命名servlet或JSP页面。Servlet元素就是用来完成此项任务的。 -->
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
